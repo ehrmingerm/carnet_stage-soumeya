@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Guide du carnet de stage</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Livret à la charte « Communiquer en santé mentale » : colonne de lecture de 720 px sur surface blanche, un seul accent indigo, encadrés pâles */
+:root{
+  --indigo:#4338F2; --encre:#0E0F12; --texte-fort:#23252C; --texte:#3B3E48;
+  --texte-2:#5B5F6A; --texte-3:#6B6F7A; --bordure:#E6E6EA; --filet:#EEEEF2;
+  --fond:#F7F7F5; --surface:#FFFFFF; --lavande:#F1F0F8; --indigo-pale:#ECEBFF; --indigo-texte:#2A1FB8;
+  --vert-bg:#DDF5EA; --vert:#0B5A39; --corail-bg:#FFE9E2; --corail:#9A2E14; --jaune-bg:#FFF1CC; --jaune:#7A5200;
+  --titre:"Bricolage Grotesque",Arial,Helvetica,sans-serif;
+  --corps:"Instrument Sans",Arial,Helvetica,sans-serif;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--fond);color:var(--texte);font:400 16px/1.6 var(--corps);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{max-width:800px;margin:24px auto 0;background:var(--surface);border:1px solid var(--bordure);border-radius:28px;padding:40px 40px 48px}
+@media (max-width:620px){.page{margin:12px 12px 0;padding:24px 22px 32px;border-radius:22px}}
+h1,h2,h3{font-family:var(--titre);color:var(--encre);margin:0;text-wrap:balance}
+h1{font-size:40px;line-height:43px;font-weight:700;letter-spacing:-1.4px}
+h2{font-size:26px;line-height:30px;font-weight:700;letter-spacing:-.6px}
+h3{font-size:20px;line-height:25px;font-weight:600;letter-spacing:-.3px;margin-top:28px}
+@media (max-width:620px){h1{font-size:32px;line-height:36px}}
+p{margin:12px 0 0}
+a{color:var(--indigo);font-weight:600;text-decoration:none}
+code{font-size:.9em;background:var(--lavande);border-radius:6px;padding:1px 6px}
+.sur-titre{font:600 13px/18px var(--corps);color:var(--indigo)}
+.chapo{font-size:17px;line-height:27px;color:var(--texte)}
+.muted{color:var(--texte-2)}
+
+/* En-tête */
+.brandbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .sq{width:36px;height:36px;border-radius:10px;background:var(--indigo);color:#fff;display:grid;place-items:center;font:700 24px/1 Georgia,"Times New Roman",serif;padding-top:9px}
+.brand .l1{display:block;font:700 16px/18px var(--titre);color:var(--encre);letter-spacing:-.3px}
+.brand .l2{display:block;font:400 14px/17px var(--corps);color:var(--texte-2)}
+.mention{font-size:13px;line-height:18px;text-align:right}
+.mention b{display:block;color:var(--encre);font-weight:600}
+.mention span{color:var(--texte-2)}
+.cover{display:grid;gap:14px;margin-top:40px}
+
+/* Sommaire */
+.sommaire{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--bordure)}
+.sommaire li{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--filet)}
+.sommaire li:last-child{border-bottom:0}
+.sommaire a{color:var(--encre);font:600 18px/24px var(--titre);letter-spacing:-.3px}
+
+/* Sections */
+section.chap{margin-top:44px;padding-top:30px;border-top:1px solid var(--bordure)}
+.chap>.sur-titre{margin-bottom:6px}
+.pastille{flex:none;width:30px;height:30px;border-radius:50%;background:var(--indigo);color:#fff;display:inline-grid;place-items:center;font:700 14px/1 var(--corps)}
+ol.etapes{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:0}
+ol.etapes>li{display:grid;grid-template-columns:30px 1fr;gap:4px 16px;padding:16px 0;border-top:1px solid var(--filet)}
+ol.etapes>li:first-child{border-top:0}
+ol.etapes>li>.corps{min-width:0}
+ol.etapes>li h4{margin:3px 0 0;font:600 19px/24px var(--titre);color:var(--encre);letter-spacing:-.3px}
+ol.etapes>li p{margin-top:6px}
+ul.puces{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+ul.puces li{position:relative;padding-left:18px}
+ul.puces li::before{content:"•";position:absolute;left:2px;color:var(--indigo);font-weight:700}
+.encadre{background:var(--indigo-pale);border-radius:22px;padding:22px 26px;margin-top:22px;break-inside:avoid}
+.encadre .sur-titre{color:var(--indigo-texte)}
+.encadre h3{font-size:21px;line-height:26px;margin-top:4px}
+.encadre p:first-of-type{margin-top:8px}
+.encadre.neutre{background:var(--fond)}
+.encadre.neutre .sur-titre{color:var(--indigo)}
+.adresse{display:block;margin-top:10px;font:600 17px/24px var(--corps);color:var(--encre);word-break:break-all}
+
+figure{margin:20px 0 0;break-inside:avoid}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--bordure);border-radius:14px}
+figcaption{font-size:13px;line-height:19px;color:var(--texte-2);margin-top:8px}
+
+table{border-collapse:collapse;width:100%;margin-top:16px;font-size:15px;line-height:22px;break-inside:auto}
+th,td{text-align:left;vertical-align:top;padding:10px 12px 10px 0;border-top:1px solid var(--filet)}
+thead th{border-top:0;font-size:13px;color:var(--texte-2);font-weight:600;padding-top:0}
+tr{break-inside:avoid}
+td:first-child{white-space:nowrap}
+.tag{display:inline-block;font-size:13px;line-height:18px;font-weight:700;border-radius:8px;padding:3px 9px;background:var(--lavande);color:var(--texte)}
+.tag::before{content:"● ";font-size:9px;vertical-align:1px}
+.t-vert{background:var(--vert-bg);color:var(--vert)}
+.t-indigo{background:var(--indigo-pale);color:var(--indigo-texte)}
+.t-corail{background:var(--corail-bg);color:var(--corail)}
+.t-jaune{background:var(--jaune-bg);color:var(--jaune)}
+.t-pointille{background:#fff;color:var(--indigo-texte);box-shadow:inset 0 0 0 1.5px var(--indigo)}
+.msg{font-weight:600;color:var(--encre)}
+
+.memo{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:20px}
+.memo>div{background:var(--fond);border-radius:20px;padding:20px 22px;break-inside:avoid}
+.memo h3{margin:0;font-size:19px;line-height:24px}
+.memo ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.memo li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:15px;line-height:22px}
+.memo li::before{content:"";width:16px;height:16px;border:1.5px solid var(--indigo);border-radius:4px;margin-top:3px}
+
+.telecharger{display:inline-block;margin-top:18px;background:var(--encre);color:#fff;border-radius:999px;padding:13px 24px;font:600 15px/20px var(--corps)}
+.methode{margin-top:40px;padding-top:20px;border-top:1px solid var(--bordure);font-size:13px;line-height:19px;color:var(--texte-2)}
+footer.pied{text-align:center;font-size:12px;line-height:19px;color:var(--texte-3);padding:20px 16px 36px}
+footer.pied a{color:var(--texte-3);font-weight:400;text-decoration:underline}
+
+@media print{
+  @page{size:A4;margin:16mm 17mm 18mm}
+  body{background:#fff;font-size:10.5pt;line-height:1.5}
+  .page{max-width:none;margin:0;border:0;border-radius:0;padding:0}
+  .ecran{display:none!important}
+  section.chap{break-before:page;margin-top:0;padding-top:0;border-top:0}
+  .cover{margin-top:22mm}
+  .sommaire{margin-top:16px}
+  .sommaire li{padding:7px 0}
+  .encadre{padding:16px 20px;margin-top:16px}
+  figure{margin-top:14px}
+  p{margin-top:9px}
+  ol.etapes>li{padding:11px 0}
+  h3{margin-top:20px}
+  h1{font-size:34pt;line-height:1.08}
+  h2{font-size:20pt;line-height:1.15}
+  h3{font-size:14pt;line-height:1.25}
+  ol.etapes>li h4{font-size:13pt}
+  .sommaire a{font-size:13pt}
+  figure img{max-height:92mm;object-fit:contain;object-position:left top;width:auto;max-width:100%}
+  footer.pied{display:none}
+  h2,h3,h4{break-after:avoid}
+  h3+p,h3+table,h3+ul{break-before:avoid}
+  a{color:var(--indigo)}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="brandbar">
+  <a class="brand" href="https://communication-santementale.fr/" aria-label="Communiquer en santé mentale"><span class="sq" aria-hidden="true">❝</span><span><span class="l1">Communiquer</span><span class="l2">en santé mentale</span></span></a>
+  <div class="mention"><b>Carnet de stage</b><span>Guide d'utilisation</span></div>
+</div>
+
+<div class="cover">
+  <div class="sur-titre">Guide d'utilisation pour la stagiaire</div>
+  <h1>Le carnet de stage</h1>
+  <p class="chapo">Ce livret explique comment utiliser le carnet de suivi de votre stage. Vous y trouverez comment vous connecter, renseigner votre semaine, déposer une demande et préparer un bilan.</p>
+  <div class="encadre neutre">
+    <div class="sur-titre">Adresse du carnet</div>
+    <span class="adresse">https://ehrmingerm.github.io/carnet_stage-soumeya/</span>
+    <p class="muted" style="font-size:14px;line-height:20px">Ajoutez-la à vos favoris. C'est la seule adresse à utiliser.</p>
+  </div>
+  <a class="telecharger ecran" href="guide/guide-carnet-de-stage.pdf">Télécharger le livret en PDF →</a>
+</div>
+
+<ol class="sommaire">
+  <li><span class="pastille">1</span><a href="#bref">Le carnet en bref</a></li>
+  <li><span class="pastille">2</span><a href="#demarrer">Avant de commencer</a></li>
+  <li><span class="pastille">3</span><a href="#semaine">Chaque semaine</a></li>
+  <li><span class="pastille">4</span><a href="#bilan">Toutes les deux semaines : le bilan</a></li>
+  <li><span class="pastille">5</span><a href="#onglets">Les autres onglets</a></li>
+  <li><span class="pastille">6</span><a href="#securite">Enregistrement et sécurité</a></li>
+  <li><span class="pastille">7</span><a href="#probleme">En cas de problème</a></li>
+  <li><span class="pastille">8</span><a href="#memo">Aide-mémoire</a></li>
+</ol>
+
+<!-- 1 -->
+<section class="chap" id="bref">
+  <div class="sur-titre">Partie 1</div>
+  <h2>Le carnet en bref</h2>
+  <p>Le carnet est un espace commun pour suivre votre stage semaine par semaine. Votre tuteur et vous voyez les mêmes informations.</p>
+  <p>Les données sont enregistrées dans un dépôt GitHub privé, accessible à vous deux seulement. La page du carnet n'en contient aucune : elle les affiche une fois que vous êtes connectée. Chaque enregistrement est daté et conservé dans un historique.</p>
+
+  <h3>Qui fait quoi</h3>
+  <table>
+    <thead><tr><th>Vous</th><th>Votre tuteur</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:normal">Renseigner vos jours de présence</td><td>Répondre à vos demandes</td></tr>
+      <tr><td style="white-space:normal">Indiquer l'avancement de vos missions</td><td>Donner son appréciation dans les bilans</td></tr>
+      <tr><td style="white-space:normal">Déposer vos demandes de validation</td><td>Tenir les paramètres du stage</td></tr>
+      <tr><td style="white-space:normal">Préparer les bilans et donner votre ressenti</td><td>Tenir la gratification et les versements</td></tr>
+    </tbody>
+  </table>
+  <p>Vous pouvez tous les deux ajouter des remarques et des étapes au planning.</p>
+
+  <h3>Les onglets</h3>
+  <table>
+    <thead><tr><th>Onglet</th><th>À quoi il sert</th></tr></thead>
+    <tbody>
+      <tr><td><b>Semaine</b></td><td>Vos jours, l'avancement des missions, vos demandes et vos remarques de la semaine. C'est l'onglet principal.</td></tr>
+      <tr><td><b>Missions</b></td><td>La liste des missions, leur statut, leur échéance et leur progression.</td></tr>
+      <tr><td><b>Validations et demandes</b></td><td>Toutes les demandes, avec leur statut et la réponse du tuteur.</td></tr>
+      <tr><td><b>Bilans</b></td><td>Un bilan toutes les deux semaines, rempli lors de l'entretien.</td></tr>
+      <tr><td><b>Remarques</b></td><td>Les remarques générales sur le stage, datées et classées.</td></tr>
+      <tr><td><b>Planning</b></td><td>Le calendrier prévisionnel, semaine par semaine.</td></tr>
+      <tr><td><b>Gratification</b></td><td>Le calcul mensuel de la gratification, du repas et du transport. Lecture seule.</td></tr>
+      <tr><td><b>Paramètres</b></td><td>Les dates du stage et les objectifs de la convention. Lecture seule.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 2 -->
+<section class="chap" id="demarrer">
+  <div class="sur-titre">Partie 2</div>
+  <h2>Avant de commencer</h2>
+  <p>Ces étapes ne se font qu'une fois. Il vous faut un compte GitHub et un ordinateur.</p>
+  <ol class="etapes">
+    <li><span class="pastille">1</span><div class="corps"><h4>Accepter l'invitation</h4>
+      <p>Ouvrez le courriel d'invitation de GitHub et cliquez sur « Accept invitation ». Vous pouvez aussi vous connecter à GitHub et ouvrir l'adresse <code>github.com/ehrmingerm/stage-soumeya/invitations</code>.</p></div></li>
+    <li><span class="pastille">2</span><div class="corps"><h4>Créer votre jeton</h4>
+      <p>Le jeton est une clé personnelle qui permet au carnet de lire et d'enregistrer les données. Sur GitHub :</p>
+      <ul class="puces">
+        <li>cliquez sur votre photo de profil, puis <b>Settings</b> ;</li>
+        <li>tout en bas du menu de gauche, <b>Developer settings</b> ;</li>
+        <li><b>Personal access tokens</b>, puis <b>Tokens (classic)</b>, puis <b>Generate new token (classic)</b> ;</li>
+        <li>Note : « Carnet de stage » ; Expiration : <b>Custom</b>, avec une date après la fin du stage ;</li>
+        <li>cochez uniquement la case <b>repo</b> ;</li>
+        <li>cliquez sur <b>Generate token</b> et copiez le jeton, qui commence par <code>ghp_</code>.</li>
+      </ul>
+      <p>GitHub n'affiche le jeton qu'une fois. Si GitHub demande votre mot de passe ou un code, saisissez-le.</p></div></li>
+    <li><span class="pastille">3</span><div class="corps"><h4>Ouvrir le carnet</h4>
+      <p>Ouvrez l'adresse <b style="overflow-wrap:anywhere">https://ehrmingerm.github.io/carnet_stage-soumeya/</b> et ajoutez-la à vos favoris.</p></div></li>
+    <li><span class="pastille">4</span><div class="corps"><h4>Vous connecter</h4>
+      <p>Collez votre jeton dans le champ « Jeton GitHub », puis cliquez sur « Se connecter ». Le navigateur garde le jeton en mémoire : vous n'aurez pas à le recoller à chaque visite.</p></div></li>
+    <li><span class="pastille">5</span><div class="corps"><h4>Vérifier</h4>
+      <p>Sous les chiffres du haut, la mention « Connecté : » est suivie de votre identifiant GitHub. À côté de « Vous complétez en tant que », <b>Stagiaire</b> est sélectionné. Si ce n'est pas le cas, cliquez dessus.</p></div></li>
+  </ol>
+  <figure><img src="guide/connexion.png" alt="Écran de connexion du carnet, avec le champ Jeton GitHub et le bouton Se connecter"><figcaption>L'écran de connexion. Collez votre jeton dans le champ « Jeton GitHub ».</figcaption></figure>
+  <figure><img src="guide/entete.png" alt="En-tête du carnet avec les chiffres clés, l'état de l'enregistrement et les onglets"><figcaption>Une fois connectée : le rôle « Stagiaire », les chiffres clés, l'état de l'enregistrement et les onglets. Données d'exemple.</figcaption></figure>
+  <div class="encadre">
+    <div class="sur-titre">Important</div>
+    <h3>Votre jeton est confidentiel</h3>
+    <p>Un jeton classique donne accès à tous vos dépôts GitHub, pas seulement à celui du stage. Ne le collez que dans le carnet. Ne l'envoyez à personne, y compris à votre tuteur.</p>
+    <p>S'il est perdu ou expiré, créez-en un nouveau et supprimez l'ancien depuis la même page de GitHub.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="chap" id="semaine">
+  <div class="sur-titre">Partie 3</div>
+  <h2>Chaque semaine</h2>
+  <p>Tout se passe dans l'onglet <b>Semaine</b>. La semaine en cours s'ouvre par défaut. Les flèches et la liste en haut permettent d'en choisir une autre.</p>
+
+  <h3>Vos jours</h3>
+  <p>Chaque jour travaillé de la semaine a sa carte. Choisissez son état dans la liste.</p>
+  <table>
+    <thead><tr><th>État</th><th>Quand l'utiliser</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag t-pointille">Prévu (à confirmer)</span></td><td>Dès qu'une date de présence est convenue avec votre tuteur.</td></tr>
+      <tr><td><span class="tag t-vert">Présent</span></td><td>Une journée effectuée sur place.</td></tr>
+      <tr><td><span class="tag t-vert">Télétravail</span></td><td>Une journée effectuée à distance.</td></tr>
+      <tr><td><span class="tag t-indigo">Demi-journée</span></td><td>Une demi-journée sur place. Elle compte pour moitié.</td></tr>
+      <tr><td><span class="tag t-corail">Absent</span></td><td>Un jour prévu qui n'a pas eu lieu.</td></tr>
+      <tr><td><span class="tag">Congé / fermeture</span></td><td>Un jour sans stage, convenu à l'avance.</td></tr>
+      <tr><td><span class="tag">Férié</span></td><td>Indiqué automatiquement. Vous n'avez rien à faire.</td></tr>
+    </tbody>
+  </table>
+  <p>Le principe : un jour est d'abord <b>Prévu</b>, puis, une fois effectué, il devient <b>Présent</b>, <b>Télétravail</b> ou <b>Demi-journée</b>. Un jour resté « Prévu » ne compte pas comme jour réalisé.</p>
+  <p>La différence entre « Présent » et « Télétravail » a une conséquence : l'avantage repas et la prise en charge du transport ne concernent que les jours sur place.</p>
+  <p>Le champ « Précisions » sert à noter un horaire particulier, une absence justifiée ou un déplacement.</p>
+  <figure><img src="guide/jours.png" alt="Cartes des jours de la semaine, colorées selon leur état"><figcaption>Les jours de la semaine. Les jours prévus ont un contour en pointillés. Données d'exemple.</figcaption></figure>
+
+  <h3>L'avancement des missions</h3>
+  <p>Chaque mission en cours a un curseur, de 0 à 100 %. Déplacez-le pour indiquer où vous en êtes cette semaine. Dans le champ en dessous, notez en quelques lignes ce que vous avez fait, la prochaine étape et les difficultés éventuelles.</p>
+  <p>Si aucune mission n'apparaît, aucune n'est encore « En cours ». Voyez avec votre tuteur, puis consultez l'onglet Missions.</p>
+  <figure><img src="guide/missions-semaine.png" alt="Bloc d'avancement d'une mission avec curseur et note"><figcaption>L'avancement d'une mission. Le gain depuis la semaine précédente s'affiche en vert. Données d'exemple.</figcaption></figure>
+
+  <h3>Les demandes</h3>
+  <p>Déposez une demande dès que vous avez besoin de votre tuteur. Il y en a trois types :</p>
+  <ul class="puces">
+    <li><b>Validation</b> : un document ou une décision à faire valider ;</li>
+    <li><b>Demande</b> : un accès, du matériel, une absence ;</li>
+    <li><b>Question</b> : tout le reste.</li>
+  </ul>
+  <p>Saisissez un objet court, une date si la réponse est attendue avant un moment précis, puis cliquez sur « Déposer ». La demande apparaît avec le statut <span class="tag t-jaune">En attente</span>. Votre tuteur y répond et la passe en <span class="tag t-vert">Validé</span>, <span class="tag t-corail">À revoir</span> ou <span class="tag t-vert">Traité</span>. Sa réponse s'affiche sous la demande.</p>
+  <p>Une demande encore en attente reste visible les semaines suivantes, sous « En attente depuis les semaines précédentes ».</p>
+  <figure><img src="guide/demandes-semaine.png" alt="Liste des demandes de la semaine et formulaire de dépôt"><figcaption>Une demande en attente et le formulaire de dépôt. Données d'exemple.</figcaption></figure>
+
+  <h3>Les remarques de la semaine</h3>
+  <p>Ce champ libre, en bas de l'onglet, sert à noter ce qui s'est bien passé, un point d'attention ou une information utile.</p>
+
+  <div class="encadre neutre">
+    <div class="sur-titre">Conseil de rythme</div>
+    <h3>Au fil de l'eau, puis en fin de semaine</h3>
+    <p>Le plus simple est de renseigner vos jours au fur et à mesure, puis de compléter l'avancement et les remarques en fin de semaine. Votre tuteur voit ainsi où vous en êtes avant chaque point.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="chap" id="bilan">
+  <div class="sur-titre">Partie 4</div>
+  <h2>Toutes les deux semaines : le bilan</h2>
+  <p>Le stage est découpé en quinzaines. À la fin de chacune, un message dans l'onglet Semaine vous invite à ouvrir le bilan. Vous pouvez aussi passer par l'onglet <b>Bilans</b>, où le bilan en cours est déjà ouvert.</p>
+  <p>En haut du bilan, le carnet reprend les chiffres de la quinzaine : jours réalisés, évolution de chaque mission, nombre de demandes déposées. Le bilan comporte ensuite six champs.</p>
+  <table>
+    <thead><tr><th>Champ</th><th>Qui le remplit</th></tr></thead>
+    <tbody>
+      <tr><td>Travaux réalisés</td><td>Vous, avant l'entretien</td></tr>
+      <tr><td>Points positifs, acquis</td><td>Vous, puis ensemble</td></tr>
+      <tr><td>Difficultés rencontrées</td><td>Vous, puis ensemble</td></tr>
+      <tr><td>Objectifs pour la quinzaine suivante</td><td>Ensemble, pendant l'entretien</td></tr>
+      <tr><td>Appréciation du tuteur</td><td>Votre tuteur</td></tr>
+      <tr><td>Ressenti de la stagiaire</td><td>Vous</td></tr>
+    </tbody>
+  </table>
+  <p>Préparez les trois premiers champs avant l'entretien. Après l'entretien, le statut passe à « Réalisé ».</p>
+  <figure><img src="guide/bilans.png" alt="Onglet Bilans avec le bilan en cours ouvert et la liste des bilans à venir"><figcaption>L'onglet Bilans. Cliquez sur un bilan pour l'ouvrir ou le refermer. Données d'exemple.</figcaption></figure>
+</section>
+
+<!-- 5 -->
+<section class="chap" id="onglets">
+  <div class="sur-titre">Partie 5</div>
+  <h2>Les autres onglets</h2>
+
+  <h3>Missions</h3>
+  <p>Chaque mission a un intitulé, un statut, une échéance, un livrable attendu et une barre de progression. La progression reprend ce que vous indiquez chaque semaine. Une mission s'ajoute ou se modifie en accord avec votre tuteur, avec « Ajouter une mission » ou le lien « Modifier ».</p>
+  <figure><img src="guide/missions.png" alt="Liste des missions avec statut et progression"><figcaption>L'onglet Missions. Données d'exemple.</figcaption></figure>
+
+  <h3>Validations et demandes</h3>
+  <p>Cet onglet rassemble toutes les demandes. Les boutons en haut filtrent les demandes ouvertes, traitées ou toutes. Le formulaire du bas permet d'ajouter des précisions plus longues que dans l'onglet Semaine.</p>
+  <figure><img src="guide/validations.png" alt="Onglet Validations et demandes avec filtres et formulaire"><figcaption>L'onglet Validations et demandes. Données d'exemple.</figcaption></figure>
+
+  <h3>Remarques</h3>
+  <p>Ce sont des remarques générales sur le stage, sans lien avec une semaine précise. Chacune a une date et une catégorie : générale, compétences, posture professionnelle, organisation, évaluation finale.</p>
+
+  <h3>Planning</h3>
+  <p>Le planning montre le stage semaine par semaine, et chaque occurrence s'y place à sa date exacte. Les occurrences d'un ou deux jours, comme un rendez-vous ou une échéance, apparaissent sous forme de losange. Le trait indigo marque aujourd'hui.</p>
+  <p>Pour ajouter une étape, une échéance, un rendez-vous ou un congé, remplissez « Ajouter au planning » en bas de l'onglet : un libellé, un type, une date de début et, si besoin, une date de fin. Sous le planning, la liste des occurrences rappelle les dates de chacune. Cliquez sur « Modifier » ou sur une ligne du planning pour la changer.</p>
+  <figure><img src="guide/planning.png" alt="Planning prévisionnel en semaines avec barres et losanges"><figcaption>Le planning et la liste des occurrences. La colonne colorée est la semaine en cours. Données d'exemple.</figcaption></figure>
+
+  <h3>Gratification</h3>
+  <p>Cet onglet est en lecture seule. Il calcule chaque mois trois montants distincts, à partir des jours confirmés :</p>
+  <ul class="puces">
+    <li><b>la gratification</b> : heures de présence × taux horaire. Le taux horaire est de 4,50 € en 2026. Le télétravail compte comme présence ;</li>
+    <li><b>l'avantage repas</b> : 4,50 € par jour passé sur place ;</li>
+    <li><b>le transport</b> : la prise en charge prévue par la convention, au prorata de vos jours de présence sur place dans le mois.</li>
+  </ul>
+  <p>Les jours seulement « Prévus » n'entrent pas dans les montants dus. Ils servent à l'estimation. Votre tuteur coche « versé » une fois le paiement effectué.</p>
+  <figure><img src="guide/gratification.png" alt="Tableau mensuel de la gratification, du repas et du transport"><figcaption>L'onglet Gratification, vu par la stagiaire. Données d'exemple.</figcaption></figure>
+
+  <h3>Paramètres</h3>
+  <p>Cet onglet, en lecture seule, rappelle les dates du stage, le nombre de jours prévu par la convention et les objectifs pédagogiques.</p>
+</section>
+
+<!-- 6 -->
+<section class="chap" id="securite">
+  <div class="sur-titre">Partie 6</div>
+  <h2>Enregistrement et sécurité</h2>
+  <h3>L'enregistrement est automatique</h3>
+  <p>Chaque saisie est enregistrée environ une seconde après votre dernière modification. Il n'y a pas de bouton « Enregistrer ». L'état s'affiche sous les chiffres du haut :</p>
+  <ul class="puces">
+    <li><b>Enregistrement…</b> : la saisie est en cours d'envoi ;</li>
+    <li><b>Enregistré à hh:mm</b> : tout est enregistré ;</li>
+    <li><b>Non enregistré</b> : un message explique le problème (voir la partie 7).</li>
+  </ul>
+  <p>Si vous fermez la page pendant un enregistrement, le navigateur vous demande de confirmer. Attendez quelques secondes, puis fermez.</p>
+  <h3>Voir les saisies de votre tuteur</h3>
+  <p>Le carnet relit les données toutes les minutes et chaque fois que vous revenez sur l'onglet du navigateur. Le lien « Actualiser » le fait immédiatement.</p>
+  <p>Si vous saisissez tous les deux en même temps, les modifications sont fusionnées élément par élément : une semaine, une mission, une demande. Si vous modifiez tous les deux le même élément au même moment, la dernière modification enregistrée l'emporte. Pour un bilan, mieux vaut donc le remplir l'un après l'autre.</p>
+  <h3>L'historique</h3>
+  <p>Le lien « Historique » ouvre sur GitHub la liste de tous les enregistrements, avec leur auteur et leur date. Une saisie effacée par erreur peut y être retrouvée : prévenez votre tuteur.</p>
+  <h3>Bonnes pratiques</h3>
+  <ul class="puces">
+    <li>Sur un ordinateur partagé, cliquez sur « Se déconnecter » en fin de séance.</li>
+    <li>Passez toujours par le carnet. Ne modifiez pas directement les fichiers du dépôt sur GitHub.</li>
+    <li>Utilisez toujours l'adresse en favori. N'ouvrez pas un fichier <code>index.html</code> téléchargé : il ne serait pas mis à jour.</li>
+  </ul>
+</section>
+
+<!-- 7 -->
+<section class="chap" id="probleme">
+  <div class="sur-titre">Partie 7</div>
+  <h2>En cas de problème</h2>
+  <table>
+    <thead><tr><th>Message ou situation</th><th>Que faire</th></tr></thead>
+    <tbody>
+      <tr><td style="white-space:normal"><span class="msg">« Ce jeton est refusé par GitHub »</span></td><td>Le jeton est incomplet ou expiré. Recollez-le en entier, ou créez-en un nouveau.</td></tr>
+      <tr><td style="white-space:normal"><span class="msg">« Le dépôt … est introuvable avec ce jeton »</span></td><td>Vérifiez que vous avez accepté l'invitation et que la case <b>repo</b> était cochée à la création du jeton.</td></tr>
+      <tr><td style="white-space:normal"><span class="msg">« Votre compte peut lire le dépôt mais pas y écrire »</span></td><td>Prévenez votre tuteur : il doit vérifier vos droits sur le dépôt.</td></tr>
+      <tr><td style="white-space:normal"><span class="msg">« Votre jeton GitHub n'est plus valide »</span></td><td>Le jeton a expiré ou a été supprimé. Cliquez sur « Se déconnecter », créez un nouveau jeton et collez-le.</td></tr>
+      <tr><td style="white-space:normal"><span class="msg">« Votre jeton ne permet pas d'écrire dans le dépôt »</span></td><td>Créez un jeton classique avec la case <b>repo</b> cochée.</td></tr>
+      <tr><td style="white-space:normal"><span class="msg">« Les dernières modifications n'ont pas pu être enregistrées »</span></td><td>La connexion a été interrompue. Restez sur la page : vos saisies seront renvoyées à la prochaine modification. Vérifiez ensuite que « Enregistré » s'affiche.</td></tr>
+      <tr><td style="white-space:normal"><span class="msg">« Connexion à GitHub impossible »</span></td><td>Vérifiez votre connexion internet, puis rechargez la page.</td></tr>
+      <tr><td style="white-space:normal">La page semble ancienne ou ne change pas</td><td>Rechargez en forçant : Cmd + Maj + R sur Mac, Ctrl + Maj + R sur PC. Vérifiez que vous êtes bien sur l'adresse en favori.</td></tr>
+      <tr><td style="white-space:normal">Le bouton « Generate token » ne réagit pas</td><td>Choisissez une date d'expiration, regardez si GitHub demande une confirmation, puis rechargez la page de GitHub.</td></tr>
+    </tbody>
+  </table>
+  <p>Pour tout autre problème, envoyez à votre tuteur le texte exact du message affiché.</p>
+</section>
+
+<!-- 8 -->
+<section class="chap" id="memo">
+  <div class="sur-titre">Partie 8</div>
+  <h2>Aide-mémoire</h2>
+  <div class="memo">
+    <div><h3>Chaque semaine</h3><ul>
+      <li>Marquer les jours prévus</li>
+      <li>Confirmer les jours effectués</li>
+      <li>Indiquer l'avancement des missions</li>
+      <li>Déposer les demandes de validation</li>
+      <li>Compléter les remarques</li></ul></div>
+    <div><h3>Toutes les deux semaines</h3><ul>
+      <li>Préparer les travaux, les acquis et les difficultés</li>
+      <li>Faire l'entretien avec votre tuteur</li>
+      <li>Fixer les objectifs suivants</li>
+      <li>Donner votre ressenti</li></ul></div>
+    <div><h3>À tout moment</h3><ul>
+      <li>Ajouter une étape au planning</li>
+      <li>Consulter les réponses à vos demandes</li>
+      <li>Vérifier « Enregistré à hh:mm »</li>
+      <li>Se déconnecter sur un ordinateur partagé</li></ul></div>
+  </div>
+  <div class="encadre neutre">
+    <div class="sur-titre">Adresse du carnet</div>
+    <span class="adresse">https://ehrmingerm.github.io/carnet_stage-soumeya/</span>
+  </div>
+  <p class="methode"><b>À propos des captures.</b> Les illustrations de ce livret ont été réalisées avec des données d'exemple. Les noms, missions et montants affichés ne sont pas ceux de votre stage.</p>
+</section>
+
+</div>
+<footer class="pied"><a href="./">Ouvrir le carnet</a> · <a href="https://communication-santementale.fr/">communication-santementale.fr</a> · © 2026 Mickaël Worms-Ehrminger · Communiquer en santé mentale</footer>
+</body>
+</html>

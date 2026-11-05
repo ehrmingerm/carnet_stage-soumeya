@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Fiche de mission de Souméya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Charte « Communiquer en santé mentale » : colonne de lecture sur surface blanche arrondie, fond blanc cassé, accent indigo unique. Mode clair imposé par la charte. */
+:root{
+  color-scheme: light;
+  --indigo:#4338F2; --indigo-clair:#A9A4FF; --encre:#0E0F12; --texte-fort:#23252C; --texte:#3B3E48;
+  --texte-2:#5B5F6A; --texte-3:#6B6F7A; --bordure:#E6E6EA; --filet:#EEEEF2;
+  --fond:#F7F7F5; --surface:#FFFFFF; --lavande:#F1F0F8; --indigo-pale:#ECEBFF;
+  --comprendre:#2A1FB8; --blanc:#FFFFFF;
+  --titre:'Bricolage Grotesque',Arial,Helvetica,sans-serif;
+  --corps:'Instrument Sans',Arial,Helvetica,sans-serif;
+  --r-page:28px; --r-carte:22px; --r-petit:18px; --r-tag:8px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--fond); color:var(--texte);
+  font:400 16px/1.6 var(--corps);
+  padding-block:32px 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:780px; margin:0 auto; background:var(--surface); border:1px solid var(--bordure); border-radius:var(--r-page); padding:36px 44px 40px}
+h1,h2,h3,h4{font-family:var(--titre); color:var(--encre); margin:0; text-wrap:balance}
+h1{font-size:40px; line-height:43px; font-weight:700; letter-spacing:-1.4px}
+h2{font-size:26px; line-height:30px; font-weight:700; letter-spacing:-.6px}
+h3{font-size:19px; line-height:24px; font-weight:600; letter-spacing:-.3px}
+p{margin:0}
+a{color:var(--indigo); font-weight:600; text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--indigo); outline-offset:2px; border-radius:4px}
+
+.entete{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding-bottom:28px; border-bottom:1px solid var(--bordure)}
+.logo{display:flex; align-items:center; gap:12px}
+.logo-carre{width:36px; height:36px; border-radius:10px; background:var(--indigo); color:var(--blanc); display:grid; place-items:center; font:700 20px/1 var(--titre); padding-top:6px}
+.logo-texte{display:flex; flex-direction:column; line-height:1.1}
+.logo-texte b{font:700 17px/1.1 var(--titre); color:var(--encre); letter-spacing:-.3px}
+.logo-texte span{font:400 14px/1.2 var(--corps); color:var(--texte-2)}
+.mention{text-align:right; font-size:13px; line-height:18px}
+.mention b{display:block; font-weight:600; color:var(--encre)}
+.mention span{color:var(--texte-2)}
+
+.ouverture{padding:32px 0 4px; display:flex; flex-direction:column; gap:12px}
+.sur-titre{font:600 13px/18px var(--corps); color:var(--indigo)}
+.chapo{font-size:17px; line-height:27px; max-width:62ch}
+
+section{margin-top:40px; padding-top:30px; border-top:1px solid var(--bordure)}
+.section-tete{display:flex; flex-direction:column; gap:6px; margin-bottom:22px}
+.sous-titre{font-size:15px; line-height:22px; color:var(--texte-2); max-width:64ch}
+.texte{font-size:16px; line-height:25px; max-width:64ch}
+.apres{margin-top:22px}
+.note{font-size:14px; line-height:21px; color:var(--texte-2); max-width:64ch}
+.bloc-titre{margin:28px 0 10px}
+
+.infos{display:grid; grid-template-columns:180px 1fr; margin:0}
+.infos dt,.infos dd{padding:12px 0; border-bottom:1px solid var(--filet); margin:0}
+.infos dt{font-size:14px; line-height:22px; color:var(--texte-2); font-weight:500}
+.infos dd{font-size:15px; line-height:23px; color:var(--texte-fort); min-width:0}
+.infos dt:last-of-type,.infos dd:last-of-type{border-bottom:0}
+.infos .grand{font:700 20px/24px var(--titre); color:var(--encre); letter-spacing:-.3px}
+.infos .grand small{font:400 14px/20px var(--corps); color:var(--texte-2); letter-spacing:0; margin-left:6px}
+.domaines{display:flex; flex-wrap:wrap; gap:6px}
+
+.tag{display:inline-block; font:700 13px/18px var(--corps); padding:3px 9px; border-radius:var(--r-tag); white-space:nowrap; background:var(--lavande); color:var(--texte)}
+.tag-indigo{background:var(--indigo-pale); color:var(--comprendre)}
+
+.encadre{background:var(--indigo-pale); border-radius:var(--r-carte); padding:24px 26px; display:flex; flex-direction:column; gap:8px}
+.encadre .sur-titre{color:var(--comprendre)}
+.encadre h3{font-size:22px; line-height:27px; font-weight:700; letter-spacing:-.4px}
+.encadre p{color:var(--texte-fort); font-size:16px; line-height:25px}
+
+.numeros{list-style:none; margin:0; padding:0}
+.numeros > li{display:grid; grid-template-columns:30px 1fr auto; gap:14px; padding:16px 0; border-bottom:1px solid var(--filet); align-items:start}
+.numeros > li:last-child{border-bottom:0}
+.numeros > li > div{min-width:0}
+.pastille{width:30px; height:30px; border-radius:50%; background:var(--indigo); color:var(--blanc); display:grid; place-items:center; font:700 14px/1 var(--corps)}
+.numeros h3{font-size:19px; line-height:24px}
+.numeros p{margin-top:4px; font-size:15px; line-height:23px}
+.numeros .simple{font-size:15px; line-height:23px; color:var(--texte-fort); padding-top:3px; margin-top:0}
+.heures{font:700 20px/24px var(--titre); color:var(--encre); letter-spacing:-.3px; white-space:nowrap; font-variant-numeric:tabular-nums; padding-top:2px}
+.heures small{font:400 13px/18px var(--corps); color:var(--texte-2); margin-left:2px}
+
+.repartition{margin:4px 0 8px}
+.barre{display:flex; height:14px; border-radius:999px; overflow:hidden; gap:3px}
+.barre span{display:block; height:100%}
+.barre span:nth-child(odd){background:var(--indigo)}
+.barre span:nth-child(even){background:var(--indigo-clair)}
+.barre-legende{display:flex; justify-content:space-between; font-size:13px; line-height:18px; color:var(--texte-2); margin-top:8px; font-variant-numeric:tabular-nums}
+.total{display:flex; justify-content:space-between; align-items:baseline; padding:16px 0 0; border-top:1px solid var(--bordure); margin-top:4px}
+.total b{font:700 19px/24px var(--titre); color:var(--encre)}
+.total .heures{font-size:24px; line-height:28px}
+
+.lignes{list-style:none; margin:0; padding:0}
+.lignes li{padding:16px 0; border-bottom:1px solid var(--filet); display:flex; flex-direction:column; gap:6px}
+.lignes li:last-child{border-bottom:0}
+.lignes .haut{display:flex; justify-content:space-between; gap:14px; align-items:flex-start}
+.lignes h3{font-size:18px; line-height:23px; min-width:0}
+.lignes p{font-size:15px; line-height:22px; color:var(--texte-2)}
+
+.trois{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px}
+.volet{border:1px solid var(--bordure); border-radius:var(--r-petit); padding:18px 20px; display:flex; flex-direction:column; gap:8px; min-width:0}
+.volet .ligne{display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap}
+.volet .lettre{font:600 13px/18px var(--corps); color:var(--indigo)}
+.volet h3{font-size:18px; line-height:23px}
+.volet p{font-size:14px; line-height:21px; color:var(--texte-fort)}
+.volet .methode{font-size:13px; line-height:19px; color:var(--texte-2); margin-top:auto; padding-top:8px; border-top:1px solid var(--filet)}
+
+.famille{background:var(--fond); border-radius:20px; padding:22px 24px; display:flex; flex-direction:column; gap:12px; min-width:0}
+.famille h3{font-size:19px; line-height:24px}
+.famille p{font-size:15px; line-height:23px; color:var(--texte-fort)}
+.puces{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px}
+.puces li{font-size:15px; line-height:23px; padding-left:16px; position:relative; color:var(--texte-fort)}
+.puces li::before{content:"•"; position:absolute; left:0; color:var(--indigo); font-weight:700}
+.puces b{font-weight:600; color:var(--encre)}
+.methode-blocs{display:flex; flex-direction:column; gap:14px; margin-top:22px}
+
+.attention{background:var(--lavande); border-radius:var(--r-petit); padding:16px 20px; font-size:15px; line-height:23px; color:var(--texte-fort)}
+.attention b{font-weight:600}
+
+.biblio ul{list-style:none; margin:0; padding:0}
+.biblio li{font-size:14px; line-height:21px; padding:9px 0; border-bottom:1px solid var(--filet); overflow-wrap:anywhere}
+.biblio li:last-child{border-bottom:0}
+.biblio a{font-weight:500}
+
+.signature{margin-top:40px; padding-top:28px; border-top:1px solid var(--bordure); display:flex; flex-direction:column; gap:2px}
+.signature b{font:700 18px/24px var(--titre); color:var(--encre); letter-spacing:-.3px}
+.signature span{font-size:14px; line-height:20px; color:var(--texte-2)}
+.pied{max-width:780px; margin:22px auto 0; text-align:center; font-size:12px; line-height:19px; color:var(--texte-3)}
+.pied a{color:var(--texte-3); text-decoration:underline; font-weight:400}
+
+@media (max-width:700px){
+  .trois{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .page{padding:26px 22px 30px; border-radius:22px}
+  h1{font-size:32px; line-height:36px}
+  h2{font-size:23px; line-height:27px}
+  .mention{text-align:left}
+  .infos{grid-template-columns:1fr}
+  .infos dt{border-bottom:0; padding-bottom:0}
+  .infos dd{padding-top:2px}
+  .numeros > li{grid-template-columns:30px 1fr}
+  .numeros .heures{grid-column:2}
+  .lignes .haut{flex-direction:column; gap:6px}
+  .encadre,.famille{padding:20px}
+}
+@media print{
+  body{background:var(--surface); padding:0}
+  .page{border:0; padding:0; max-width:none}
+  .volet,.famille,.numeros > li,.lignes li,.encadre{break-inside:avoid}
+  .pied{display:none}
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+  <header class="entete">
+    <div class="logo" aria-label="Communiquer en santé mentale">
+      <div class="logo-carre" aria-hidden="true">❝</div>
+      <div class="logo-texte"><b>Communiquer</b><span>en santé mentale</span></div>
+    </div>
+    <div class="mention"><b>Stage de L3 · Tutorat</b><span>novembre 2026</span></div>
+  </header>
+
+  <div class="ouverture">
+    <p class="sur-titre">Stage de Souméya Sadi · Triptyque recherche &amp; conseil</p>
+    <h1>Fiche de mission</h1>
+    <p class="chapo">Le stage porte sur les émotions dans la relation d’aide&nbsp;: comment les aidants vivent leurs émotions, lisent celles de leur proche, et comment on les perçoit. Il combine une synthèse de littérature, une étude en ligne avec analyses statistiques, des entretiens et un article de vulgarisation.</p>
+  </div>
+
+  <section aria-labelledby="t-infos">
+    <div class="section-tete"><h2 id="t-infos">Informations générales</h2></div>
+    <dl class="infos">
+      <dt>Stagiaire</dt><dd>Souméya Sadi</dd>
+      <dt>Formation</dt><dd>Licence 3 de psychologie, parcours sciences psychologiques, Université Paris Cité</dd>
+      <dt>Structure d’accueil</dt><dd>Triptyque recherche &amp; conseil</dd>
+      <dt>Tuteur</dt><dd>Mickaël Worms-Ehrminger, enseignant et chercheur en santé publique (Inserm UMR&nbsp;1153 – UR&nbsp;4139), consultant (Santé publique France, ARS Île-de-France), auteur, vulgarisateur</dd>
+      <dt>Durée</dt><dd class="grand">147&nbsp;heures<small>soit 21 jours de 7&nbsp;h</small></dd>
+      <dt>Rythme</dt><dd>Un jour fixe par semaine, entre novembre et mai&nbsp;; dates à fixer</dd>
+      <dt>Cadre universitaire</dt><dd>UE Stage de L3 (6&nbsp;ECTS), 105&nbsp;h minimum</dd>
+      <dt>Gratification</dt><dd>Au taux légal, selon les heures de présence, et 4,50&nbsp;€ par jour de présence pour le repas</dd>
+      <dt>Domaines</dt><dd><div class="domaines"><span class="tag tag-indigo">Psychologie des émotions</span><span class="tag tag-indigo">Psychologie sociale</span><span class="tag tag-indigo">Psychométrie</span><span class="tag tag-indigo">Analyse statistique</span><span class="tag tag-indigo">Recherche qualitative</span><span class="tag tag-indigo">Vulgarisation</span></div></dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="t-contexte">
+    <div class="section-tete">
+      <h2 id="t-contexte">Contexte du projet</h2>
+      <p class="sous-titre">Selon la DREES, 9,3&nbsp;millions de personnes déclaraient en 2021 apporter une aide régulière à un proche en situation de handicap ou de perte d’autonomie, soit un adulte sur six et un mineur sur vingt (<a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/93-millions-de-personnes-declarent-apporter">DREES, Études et Résultats n°&nbsp;1255</a>). Le soutien moral est la forme d’aide la plus déclarée.</p>
+    </div>
+    <p class="texte">Ce stage s’inscrit dans le projet de recherche de la structure consacré aux aidants. Il porte sur un projet ancillaire conçu pour le stage, distinct du protocole principal.</p>
+    <h3 class="bloc-titre">Trois questions le structurent</h3>
+    <ul class="lignes">
+      <li><div class="haut"><h3>Les aidants qui ont du mal à identifier et à décrire leurs émotions ressentent-ils une charge plus lourde&nbsp;?</h3><span class="tag">Volet B</span></div></li>
+      <li><div class="haut"><h3>Juge-t-on différemment un homme et une femme qui aident un proche&nbsp;?</h3><span class="tag">Volet B</span></div></li>
+      <li><div class="haut"><h3>Comment les aidants lisent-ils les émotions d’un proche dont l’expression du visage change avec la maladie&nbsp;?</h3><span class="tag">Volet C</span></div></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-objectifs">
+    <div class="section-tete"><h2 id="t-objectifs">Objectifs</h2></div>
+    <div class="encadre">
+      <p class="sur-titre">Objectif général</p>
+      <p>Mener un projet de recherche complet sur les émotions dans la relation d’aide, de la revue de littérature à la diffusion des résultats auprès du grand public.</p>
+    </div>
+    <h3 class="bloc-titre">Objectifs spécifiques</h3>
+    <p class="note" style="margin-bottom:4px">À la fin du stage, la stagiaire sera capable de&nbsp;:</p>
+    <ol class="numeros">
+      <li><span class="pastille">1</span><p class="simple">Synthétiser une littérature scientifique, en partie anglophone, en distinguant ce qui est établi de ce qui reste incertain.</p></li>
+      <li><span class="pastille">2</span><p class="simple">Concevoir un questionnaire en ligne comprenant des échelles validées et une manipulation expérimentale par vignettes.</p></li>
+      <li><span class="pastille">3</span><p class="simple">Conduire des analyses statistiques dans un environnement numérique (JASP ou R) et en rédiger les résultats selon les normes attendues.</p></li>
+      <li><span class="pastille">4</span><p class="simple">Mener et analyser des entretiens semi-directifs.</p></li>
+      <li><span class="pastille">5</span><p class="simple">Écrire un article de vulgarisation rigoureux et accessible.</p></li>
+      <li><span class="pastille">6</span><p class="simple">Appliquer les règles de protection des données à un projet de recherche.</p></li>
+      <li><span class="pastille">7</span><p class="simple">Observer les pratiques professionnelles de la recherche appliquée et du conseil en santé publique.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="t-methode">
+    <div class="section-tete">
+      <h2 id="t-methode">Méthode</h2>
+      <p class="sous-titre">Le projet compte trois volets. Les volets A et B et l’article de vulgarisation en forment le cœur&nbsp;; le volet C est modulable selon le temps disponible.</p>
+    </div>
+    <div class="trois">
+      <div class="volet">
+        <div class="ligne"><span class="lettre">Volet A</span></div>
+        <h3>Synthèse</h3>
+        <p>Que sait-on du stress chronique, du sommeil et de la cognition des aidants&nbsp;? Quel cadre théorique pour les volets B et C&nbsp;?</p>
+        <p class="methode">Revue de littérature courte</p>
+      </div>
+      <div class="volet">
+        <div class="ligne"><span class="lettre">Volet B</span></div>
+        <h3>Étude en ligne</h3>
+        <p>Alexithymie et charge ressentie&nbsp;; perception d’un homme ou d’une femme qui aide un proche.</p>
+        <p class="methode">Un questionnaire en deux parties</p>
+      </div>
+      <div class="volet">
+        <div class="ligne"><span class="lettre">Volet C</span><span class="tag">Modulable</span></div>
+        <h3>Entretiens</h3>
+        <p>Comment les aidants lisent-ils les émotions d’un proche dont l’expression change&nbsp;?</p>
+        <p class="methode">Quatre entretiens semi-directifs</p>
+      </div>
+    </div>
+
+    <div class="methode-blocs">
+      <div class="famille">
+        <h3>Volet B, exemple possible&nbsp;: un questionnaire, deux analyses</h3>
+        <ul class="puces">
+          <li><b>Partie 1, ouverte à tous.</b> Chaque participant lit une vignette décrivant une personne qui aide un proche. Seul le genre de cette personne varie. Il la juge ensuite sur quelques dimensions&nbsp;: dévouement, compétence, mérite.</li>
+          <li><b>Partie 2, pour les participants qui aident un proche.</b> Une échelle d’alexithymie (TAS-20, version française) et une échelle de charge ressentie validée en français.</li>
+          <li><b>En fin de questionnaire</b>, les aidants volontaires laissent un contact pour un entretien. Ce contact est stocké à part des réponses, qui restent anonymes.</li>
+        </ul>
+      </div>
+      <div class="famille">
+        <h3>Analyses statistiques, exemple possible</h3>
+        <ul class="puces">
+          <li>Fidélité des échelles&nbsp;: alpha de Cronbach.</li>
+          <li>Vignettes&nbsp;: ANOVA factorielle, genre de la personne décrite × genre du participant.</li>
+          <li>Alexithymie et charge&nbsp;: corrélation, puis régression multiple avec des variables de contrôle (durée de l’aide, lien avec la personne aidée).</li>
+        </ul>
+        <p class="note">Objectifs d’effectifs, d’après un calcul de puissance standard (α&nbsp;=&nbsp;0,05, puissance de 0,80)&nbsp;: environ 128 participants pour détecter un effet moyen dans le plan à quatre groupes, environ 84 aidants pour détecter une corrélation de 0,30. Cet effectif n’est pas réaliste au vu du temps alloué&nbsp;; cette partie sera donc présentée comme exploratoire, et pourra potentiellement servir de base pour un mémoire de master ou un projet de thèse.</p>
+      </div>
+      <div class="encadre">
+        <p class="sur-titre">Vulgarisation, exemple possible</p>
+        <p>Un article d’environ 6&nbsp;000 signes, tiré du volet A, sur ce que la recherche sait du stress chronique, du sommeil et de la cognition des aidants. Il est rédigé tôt dans le stage. Un court encadré pourra présenter les premiers résultats du volet B en fin de stage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-deroule">
+    <div class="section-tete">
+      <h2 id="t-deroule">Déroulé et volumes horaires</h2>
+      <p class="sous-titre">Les étapes sont données dans l’ordre. Avec un jour par semaine, le stage couvre environ 21 semaines.</p>
+    </div>
+    <div class="repartition" role="img" aria-label="Répartition des 147 heures entre les neuf étapes : 10, 25, 12, 18, 8, 22, 20, 12 et 20 heures">
+      <div class="barre">
+        <span style="flex:10"></span><span style="flex:25"></span><span style="flex:12"></span><span style="flex:18"></span><span style="flex:8"></span><span style="flex:22"></span><span style="flex:20"></span><span style="flex:12"></span><span style="flex:20"></span>
+      </div>
+      <div class="barre-legende"><span>Étape 1</span><span>Étape 9</span></div>
+    </div>
+    <ol class="numeros">
+      <li><span class="pastille">1</span><div><h3>Intégration et cadrage</h3><p>Entretien de départ, présentation du projet, observation des pratiques, note de projet rédigée par la stagiaire.</p></div><span class="heures">10<small>h</small></span></li>
+      <li><span class="pastille">2</span><div><h3>Volet A&nbsp;: synthèse</h3><p>Recherche documentaire, fiches de lecture, synthèse.</p></div><span class="heures">25<small>h</small></span></li>
+      <li><span class="pastille">3</span><div><h3>Vulgarisation</h3><p>Rédaction de l’article, relecture, version finale.</p></div><span class="heures">12<small>h</small></span></li>
+      <li><span class="pastille">4</span><div><h3>Volet B&nbsp;: conception</h3><p>Choix des échelles, rédaction des vignettes, mise en ligne, pré-test.</p></div><span class="heures">18<small>h</small></span></li>
+      <li><span class="pastille">5</span><div><h3>Volet B&nbsp;: recueil</h3><p>Diffusion du questionnaire, suivi des réponses.</p></div><span class="heures">8<small>h</small></span></li>
+      <li><span class="pastille">6</span><div><h3>Volet B&nbsp;: analyses</h3><p>Nettoyage de la base, analyses dans JASP ou R, rédaction des résultats.</p></div><span class="heures">22<small>h</small></span></li>
+      <li><span class="pastille">7</span><div><h3>Volet C&nbsp;: entretiens</h3><p>Guide d’entretien, quatre entretiens, transcription.</p></div><span class="heures">20<small>h</small></span></li>
+      <li><span class="pastille">8</span><div><h3>Volet C&nbsp;: analyse</h3><p>Analyse thématique.</p></div><span class="heures">12<small>h</small></span></li>
+      <li><span class="pastille">9</span><div><h3>Rapport et restitution</h3><p>Rapport de stage, bilans, présentation orale des résultats.</p></div><span class="heures">20<small>h</small></span></li>
+    </ol>
+    <div class="total"><b>Total</b><span class="heures">147<small>h</small></span></div>
+    <p class="attention apres">Si le recueil du volet B prend du retard, le volet C se réduit à deux entretiens ou à une revue ciblée. Les heures libérées vont aux analyses.</p>
+  </section>
+
+  <section aria-labelledby="t-livrables">
+    <div class="section-tete"><h2 id="t-livrables">Livrables</h2></div>
+    <ul class="lignes">
+      <li><div class="haut"><h3>Note de projet (une page)</h3><span class="tag">Étape 1</span></div></li>
+      <li><div class="haut"><h3>Synthèse de littérature avec références au format APA</h3><span class="tag">Étape 2</span></div></li>
+      <li><div class="haut"><h3>Article de vulgarisation pour le site</h3><span class="tag">Étape 3</span></div></li>
+      <li><div class="haut"><h3>Questionnaire en ligne et vignettes</h3><span class="tag">Étape 4</span></div></li>
+      <li><div class="haut"><h3>Base de données nettoyée et fichier d’analyses JASP ou R</h3><span class="tag">Étape 6</span></div></li>
+      <li><div class="haut"><h3>Résultats rédigés selon les normes APA</h3><span class="tag">Étape 6</span></div></li>
+      <li><div class="haut"><h3>Guide d’entretien et synthèse thématique</h3><span class="tag">Étapes 7 et 8</span></div></li>
+      <li><div class="haut"><h3>Rapport de stage et présentation orale</h3><span class="tag">Étape 9</span></div></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-ethique">
+    <div class="section-tete">
+      <h2 id="t-ethique">Éthique et données</h2>
+      <p class="sous-titre">Ce volet est construit avec la stagiaire, pour qu’elle en apprenne la démarche.</p>
+    </div>
+    <ul class="puces">
+      <li><b>Questionnaire&nbsp;:</b> page d’information et de consentement en ouverture, réponses anonymes, aucun recueil d’adresse IP, aucune question sur la santé de la personne aidée.</li>
+      <li><b>Contacts pour les entretiens&nbsp;:</b> stockés dans un fichier séparé des réponses, supprimés à la fin du stage.</li>
+      <li><b>Entretiens&nbsp;:</b> note d’information, consentement écrit, pseudonymisation des transcriptions, date de destruction des enregistrements fixée à l’avance.</li>
+      <li><b>Stockage&nbsp;:</b> fichiers conservés sur un espace sécurisé, accessible au tuteur et à la stagiaire seulement.</li>
+      <li><b>Diffusion&nbsp;:</b> aucun résultat ne permet d’identifier une personne. Les extraits d’entretien cités sont pseudonymisés.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-formation">
+    <div class="section-tete">
+      <h2 id="t-formation">Lien avec la formation</h2>
+      <p class="sous-titre">Le stage répond aux deux objectifs de l’UE Stage de L3&nbsp;: observer la diversité des pratiques professionnelles et confronter les acquis théoriques au terrain. Il mobilise plusieurs enseignements de L3.</p>
+    </div>
+    <ul class="lignes">
+      <li><div class="haut"><h3>ANOVA factorielle, régression multiple, alpha de Cronbach, JASP ou R</h3><span class="tag">ASD3 · Renforcement statistique</span></div><p>Volet B, analyses</p></li>
+      <li><div class="haut"><h3>Perception d’autrui, catégorisation, stéréotypes</h3><span class="tag">SOC3</span></div><p>Volet B, vignettes</p></li>
+      <li><div class="haut"><h3>Fidélité, validité, normes</h3><span class="tag">NEURO3</span></div><p>Volet B, choix des échelles</p></li>
+      <li><div class="haut"><h3>Coping, stress et santé</h3><span class="tag">DIF3</span></div><p>Volet A</p></li>
+      <li><div class="haut"><h3>Émotions, bases neurales des émotions</h3><span class="tag">EXP3 · PSP3</span></div><p>Volets A et C</p></li>
+      <li><div class="haut"><h3>Entretien de recherche, éthique de la recherche</h3><span class="tag">MPPP</span></div><p>Volet C, éthique</p></li>
+      <li><div class="haut"><h3>Revue de littérature, normes APA, communication scientifique</h3><span class="tag">ANP3</span></div><p>Volet A, rapport, présentation</p></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-encadrement">
+    <div class="section-tete"><h2 id="t-encadrement">Encadrement</h2></div>
+    <ul class="lignes">
+      <li><div class="haut"><h3>Entretien de départ</h3><span class="tag tag-indigo">Premier jour</span></div><p>Préciser les attentes et les intérêts de la stagiaire.</p></li>
+      <li><div class="haut"><h3>Point hebdomadaire</h3><span class="tag tag-indigo">Chaque semaine</span></div><p>En fin de journée de stage&nbsp;: travail réalisé, difficultés, étape suivante.</p></li>
+      <li><div class="haut"><h3>Bilan à mi-parcours</h3><span class="tag tag-indigo">Mi-parcours</span></div><p>Avec possibilité d’ajuster le périmètre, notamment du volet C.</p></li>
+      <li><div class="haut"><h3>Bilan final</h3><span class="tag tag-indigo">Fin de stage</span></div><p>Et présentation orale des résultats.</p></li>
+      <li><div class="haut"><h3>Encadrement universitaire</h3><span class="tag tag-indigo">Université</span></div><p>La stagiaire suit les six séances obligatoires de l’UE Stage (une séance collective, cinq séances de 2&nbsp;h).</p></li>
+    </ul>
+  </section>
+
+  <section class="biblio" aria-labelledby="t-refs">
+    <div class="section-tete"><h2 id="t-refs">Références</h2></div>
+    <ul>
+      <li>Bagby, R. M., Parker, J. D. A. et Taylor, G. J. (1994). The twenty-item Toronto Alexithymia Scale—I. Item selection and cross-validation of the factor structure. <i>Journal of Psychosomatic Research</i>, 38(1), 23-32.</li>
+      <li>DREES (2023). <i>9,3 millions de personnes déclarent apporter une aide régulière à un proche en situation de handicap ou de perte d’autonomie en 2021</i>. Études et Résultats, n°&nbsp;1255. <a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/93-millions-de-personnes-declarent-apporter">drees.solidarites-sante.gouv.fr</a></li>
+      <li>Epifanio, M. S. et al. (2017). Alexithymia, burden and resilience in ALS’ caregivers. <i>Mediterranean Journal of Clinical Psychology</i>, 5(2), 107-108 (résumé de congrès). <a href="https://iris.unime.it/handle/11570/3169862">iris.unime.it</a></li>
+      <li>Gunnery, S. D., Habermann, B., Saint-Hilaire, M., Thomas, C. A. et Tickle-Degnen, L. (2016). The relationship between the experience of hypomimia and social wellbeing in people with Parkinson’s disease and their care partners. <i>Journal of Parkinson’s Disease</i>, 6(3), 625-630. <a href="https://www.doi.org/10.3233/JPD-160782">https://doi.org/10.3233/JPD-160782</a></li>
+      <li>Zarit, S. H., Reever, K. E. et Bach-Peterson, J. (1980). Relatives of the impaired elderly: Correlates of feelings of burden. <i>The Gerontologist</i>, 20(6), 649-655.</li>
+      <li>Université Paris Cité, programme de L3 de psychologie, semestres 5 et 6.</li>
+    </ul>
+  </section>
+
+  <div class="signature">
+    <b>Mickaël Worms-Ehrminger</b>
+    <span>Docteur en santé publique · Tuteur de stage</span>
+  </div>
+</main>
+
+<footer class="pied">
+  <a href="espace.html">Espace du stage</a> ·   <a href="https://communication-santementale.fr/">communication-santementale.fr</a> · <a href="https://communication-santementale.fr/contact/">Contact</a><br>
+  © 2026 Mickaël Worms-Ehrminger · Communiquer en santé mentale
+</footer>
+</body>
+</html>

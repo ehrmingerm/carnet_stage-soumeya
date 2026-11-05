@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Document de départ de Souméya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Charte « Communiquer en santé mentale » : colonne de lecture sur surface blanche arrondie, fond blanc cassé, accent indigo unique. Mode clair imposé par la charte. */
+:root{
+  color-scheme: light;
+  --indigo:#4338F2; --encre:#0E0F12; --texte-fort:#23252C; --texte:#3B3E48;
+  --texte-2:#5B5F6A; --texte-3:#6B6F7A; --bordure:#E6E6EA; --filet:#EEEEF2;
+  --fond:#F7F7F5; --surface:#FFFFFF; --lavande:#F1F0F8; --indigo-pale:#ECEBFF;
+  --comprendre:#2A1FB8; --blanc:#FFFFFF;
+  --livre-bg:#EFEBE3; --livre:#5A4526;
+  --etude-bg:#ECEBFF; --etude:#2A1FB8;
+  --rapport-bg:#E4EEF7; --rapport:#1D4F7A;
+  --avis-bg:#FFE9E2; --avis:#9A2E14;
+  --titre:'Bricolage Grotesque',Arial,Helvetica,sans-serif;
+  --corps:'Instrument Sans',Arial,Helvetica,sans-serif;
+  --r-page:28px; --r-carte:22px; --r-petit:18px; --r-tag:8px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--fond); color:var(--texte);
+  font:400 16px/1.6 var(--corps);
+  padding-block:32px 48px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:760px; margin:0 auto; background:var(--surface); border:1px solid var(--bordure); border-radius:var(--r-page); padding:36px 44px 40px}
+h1,h2,h3,h4{font-family:var(--titre); color:var(--encre); margin:0; text-wrap:balance}
+h1{font-size:40px; line-height:43px; font-weight:700; letter-spacing:-1.4px}
+h2{font-size:26px; line-height:30px; font-weight:700; letter-spacing:-.6px}
+h3{font-size:20px; line-height:25px; font-weight:600; letter-spacing:-.3px}
+p{margin:0}
+a{color:var(--indigo); font-weight:600; text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--indigo); outline-offset:2px; border-radius:4px}
+
+.entete{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding-bottom:28px; border-bottom:1px solid var(--bordure)}
+.logo{display:flex; align-items:center; gap:12px}
+.logo-carre{width:36px; height:36px; border-radius:10px; background:var(--indigo); color:var(--blanc); display:grid; place-items:center; font:700 20px/1 var(--titre); padding-top:6px}
+.logo-texte{display:flex; flex-direction:column; line-height:1.1}
+.logo-texte b{font:700 17px/1.1 var(--titre); color:var(--encre); letter-spacing:-.3px}
+.logo-texte span{font:400 14px/1.2 var(--corps); color:var(--texte-2)}
+.mention{text-align:right; font-size:13px; line-height:18px}
+.mention b{display:block; font-weight:600; color:var(--encre)}
+.mention span{color:var(--texte-2)}
+
+.ouverture{padding:32px 0 8px; display:flex; flex-direction:column; gap:12px}
+.sur-titre{font:600 13px/18px var(--corps); color:var(--indigo)}
+.chapo{font-size:17px; line-height:27px; color:var(--texte); max-width:62ch}
+.meta{font-size:14px; line-height:20px; color:var(--texte-2)}
+
+section{margin-top:40px; padding-top:30px; border-top:1px solid var(--bordure)}
+.section-tete{display:flex; flex-direction:column; gap:6px; margin-bottom:22px}
+.sous-titre{font-size:15px; line-height:22px; color:var(--texte-2); max-width:62ch}
+.texte{display:flex; flex-direction:column; gap:14px; max-width:64ch}
+
+.chiffres{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px}
+.chiffre{border:1px solid var(--bordure); border-radius:var(--r-petit); padding:16px 18px; display:flex; flex-direction:column; gap:4px; min-width:0}
+.chiffre b{font:700 30px/34px var(--titre); color:var(--encre); letter-spacing:-.6px; font-variant-numeric:tabular-nums}
+.chiffre span{font-size:14px; line-height:20px; color:var(--texte-2)}
+
+.numeros{list-style:none; margin:0; padding:0}
+.numeros > li{display:grid; grid-template-columns:30px 1fr; gap:14px; padding:16px 0; border-bottom:1px solid var(--filet)}
+.numeros > li:last-child{border-bottom:0}
+.pastille{width:30px; height:30px; border-radius:50%; background:var(--indigo); color:var(--blanc); display:grid; place-items:center; font:700 14px/1 var(--corps)}
+.pastille.neutre{background:var(--lavande); color:var(--texte)}
+.numeros h3{font-size:19px; line-height:24px}
+.numeros p{margin-top:4px; font-size:15px; line-height:23px}
+.numeros > li > div{min-width:0}
+
+.encadre{background:var(--indigo-pale); border-radius:var(--r-carte); padding:24px 26px; display:flex; flex-direction:column; gap:8px}
+.encadre .sur-titre{color:var(--comprendre)}
+.encadre h3{font-size:22px; line-height:27px; font-weight:700; letter-spacing:-.4px}
+.encadre p{color:var(--texte-fort); font-size:15px; line-height:23px}
+
+.tag{display:inline-block; font:700 13px/18px var(--corps); padding:3px 9px; border-radius:var(--r-tag); white-space:nowrap}
+.tag-livre{background:var(--livre-bg); color:var(--livre)}
+.tag-etude{background:var(--etude-bg); color:var(--etude)}
+.tag-rapport{background:var(--rapport-bg); color:var(--rapport)}
+.tag-avis{background:var(--avis-bg); color:var(--avis)}
+.tag-neutre{background:var(--lavande); color:var(--texte)}
+.legende{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; font-size:14px; line-height:20px; color:var(--texte-2)}
+.legende span.item{display:flex; gap:6px; align-items:center}
+
+.ouvrage{display:flex; flex-direction:column; gap:12px}
+.ouvrage-tete{display:flex; flex-direction:column; gap:6px}
+.ouvrage-tete .ligne{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.source{font-size:14px; line-height:20px; color:var(--texte-2)}
+.lectures{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.lectures > div{min-width:0}
+.lectures h4{font:600 13px/18px var(--corps); color:var(--texte-2); margin-bottom:6px}
+.lectures .prio h4{color:var(--indigo)}
+.chap{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px}
+.chap li{font-size:15px; line-height:22px; padding-left:16px; position:relative}
+.chap li::before{content:"•"; position:absolute; left:0; color:var(--indigo); font-weight:700}
+.chap .n{font-weight:600; color:var(--texte-fort); font-variant-numeric:tabular-nums}
+.prio .chap li{color:var(--texte-fort)}
+.ensuite .chap li{color:var(--texte-2)}
+.ensuite .chap li::before{color:var(--texte-3)}
+.note{font-size:14px; line-height:21px; color:var(--texte-2)}
+.note b{color:var(--texte-fort); font-weight:600}
+
+.questions{list-style:none; margin:0; padding:0}
+.questions > li{display:grid; grid-template-columns:30px 1fr; gap:14px; padding:18px 0; border-bottom:1px solid var(--filet)}
+.questions > li:last-child{border-bottom:0}
+.questions > li > div{min-width:0; display:flex; flex-direction:column; gap:10px}
+.questions .volet{font:600 13px/18px var(--corps); color:var(--indigo)}
+.refs{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px}
+.refs li{display:grid; grid-template-columns:96px 1fr; gap:10px; align-items:start; font-size:15px; line-height:22px; color:var(--texte-fort)}
+.refs li > span:last-child{min-width:0}
+.refs .tag{justify-self:start}
+.refs em{font-style:normal; color:var(--texte-2)}
+.attention{background:var(--lavande); border-radius:12px; padding:10px 14px; font-size:14px; line-height:21px; color:var(--texte-fort)}
+.attention b{font-weight:600}
+
+.tableau{overflow-x:auto}
+table{border-collapse:collapse; width:100%; font-size:14px; line-height:21px}
+th{font:600 13px/18px var(--corps); color:var(--texte-2); text-align:left; padding:0 12px 10px 0; border-bottom:1px solid var(--bordure)}
+td{padding:12px 12px 12px 0; border-bottom:1px solid var(--filet); vertical-align:top; color:var(--texte-fort)}
+td:first-child{font-weight:600; color:var(--encre); width:30%; min-width:150px}
+tr:last-child td{border-bottom:0}
+
+.surveiller{background:var(--fond); border-radius:20px; padding:24px 26px; display:flex; flex-direction:column; gap:14px}
+.surveiller h3{font-size:19px; line-height:24px}
+.surveiller ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:16px}
+.surveiller li{padding-left:18px; position:relative; font-size:15px; line-height:23px}
+.surveiller li::before{content:"•"; position:absolute; left:0; color:var(--indigo); font-weight:700}
+.surveiller li b{color:var(--encre); font-weight:600}
+.termes{display:block; margin-top:4px; color:var(--texte-2); font-size:14px; line-height:21px}
+
+.biblio h3{font-size:19px; line-height:24px; margin:4px 0 10px}
+.biblio ul{list-style:none; margin:0 0 22px; padding:0}
+.biblio li{font-size:14px; line-height:21px; padding:9px 0; border-bottom:1px solid var(--filet); overflow-wrap:anywhere}
+.biblio li:last-child{border-bottom:0}
+.biblio a{font-weight:500}
+
+.signature{margin-top:40px; padding-top:28px; border-top:1px solid var(--bordure); display:flex; flex-direction:column; gap:2px}
+.signature b{font:700 18px/24px var(--titre); color:var(--encre); letter-spacing:-.3px}
+.signature span{font-size:14px; line-height:20px; color:var(--texte-2)}
+.pied{max-width:760px; margin:22px auto 0; text-align:center; font-size:12px; line-height:19px; color:var(--texte-3)}
+.pied a{color:var(--texte-3); text-decoration:underline; font-weight:400}
+
+@media (max-width:620px){
+  .page{padding:26px 22px 30px; border-radius:22px}
+  h1{font-size:32px; line-height:36px}
+  h2{font-size:23px; line-height:27px}
+  .lectures,.chiffres{grid-template-columns:1fr}
+  .mention{text-align:left}
+  .encadre,.surveiller{padding:20px}
+  .refs li{grid-template-columns:1fr; gap:4px}
+}
+@media print{
+  body{background:var(--surface); padding:0}
+  .page{border:0; padding:0; max-width:none}
+  .ouvrage,.questions > li,.encadre,.surveiller{break-inside:avoid}
+  .pied{display:none}
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+  <header class="entete">
+    <div class="logo" aria-label="Communiquer en santé mentale">
+      <div class="logo-carre" aria-hidden="true">❝</div>
+      <div class="logo-texte"><b>Communiquer</b><span>en santé mentale</span></div>
+    </div>
+    <div class="mention"><b>Stage de L3 · Tutorat</b><span>novembre 2026</span></div>
+  </header>
+
+  <div class="ouverture">
+    <p class="sur-titre">Stage de Souméya Sadi · Émotions et relation d’aide</p>
+    <h1>Document de départ</h1>
+    <p class="chapo">Ce document rassemble les lectures de départ pour la synthèse de littérature (volet A, 25&nbsp;h) et la préparation de l’étude en ligne et des entretiens (volets B et C). Il indique quoi lire d’abord, ce qui peut attendre, et ce qu’il faudra chercher ailleurs.</p>
+    <p class="meta">Version du 5&nbsp;novembre 2026</p>
+  </div>
+
+  <section aria-labelledby="t-mode">
+    <div class="section-tete">
+      <h2 id="t-mode">Mode d’emploi</h2>
+      <p class="sous-titre">Vous n’avez pas à tout lire.</p>
+    </div>
+    <div class="texte">
+      <p>Le corpus transmis a été réuni pour le projet de recherche de la structure sur les aidants, centré sur l’hospitalisation à domicile. Votre projet en est distinct. Une partie seulement du corpus le sert directement&nbsp;; le reste décrit le contexte.</p>
+      <div class="chiffres">
+        <div class="chiffre"><b>58</b><span>documents distincts transmis</span></div>
+        <div class="chiffre"><b>27</b><span>utiles à votre projet, classés par volet ci-dessous</span></div>
+        <div class="chiffre"><b>6</b><span>à lire en priorité, dans les deux premières semaines</span></div>
+      </div>
+      <div class="encadre">
+        <p class="sur-titre">Pour chaque lecture</p>
+        <h3>Notez trois choses</h3>
+        <p>Ce que la source affirme, sur quelles données elle s’appuie, et ce que cela implique pour notre projet. Distinguez une association d’un effet&nbsp;: la plupart des études quantitatives du corpus sont transversales et ne permettent pas de conclure qu’un facteur cause la charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-ordre">
+    <div class="section-tete">
+      <h2 id="t-ordre">Ordre de lecture conseillé</h2>
+      <p class="sous-titre">Pour les deux premières semaines.</p>
+    </div>
+    <ol class="numeros">
+      <li><span class="pastille">1</span><div><h3>Liu, Heffernan et Tan (2020)</h3><p>Ce qu’est la charge de l’aidant&nbsp;: trois attributs (une perception de soi, une tension sur plusieurs plans, une inscription dans le temps), ses antécédents, ses conséquences et les outils qui la mesurent.</p></div></li>
+      <li><span class="pastille">2</span><div><h3>Gérain et Zech (2019)</h3><p>L’épuisement de l’aidant et un modèle intégratif de ses déterminants. Le rôle central de l’évaluation que l’aidant fait de sa situation et de sa relation avec la personne aidée. L’article cite une étude reliant l’alexithymie à l’épuisement&nbsp;: votre point d’entrée pour le volet B.</p></div></li>
+      <li><span class="pastille">3</span><div><h3>Charalambous (2023), chapitres 2 et 5</h3><p>La charge physique, dont le sommeil, psychosociale et financière&nbsp;; les stratégies d’ajustement.</p></div></li>
+      <li><span class="pastille">4</span><div><h3>Marques et al. (2026)</h3><p>Coping, stress et charge. Les stratégies centrées sur le problème sont associées à moins de stress, les stratégies centrées sur l’émotion à davantage.</p></div></li>
+      <li><span class="pastille">5</span><div><h3>Liu, J. et al. (2026)</h3><p>Les facteurs de risque de la charge, dont le genre féminin de l’aidant, et les deux outils de mesure les plus utilisés.</p></div></li>
+      <li><span class="pastille">6</span><div><h3>La grille de Zarit</h3><p>L’outil envisagé pour la charge ressentie dans le volet B&nbsp;: lisez les 22 items et leur cotation.</p></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="t-ouvrage">
+    <div class="section-tete">
+      <h2 id="t-ouvrage">Ouvrage&nbsp;: chapitres prioritaires</h2>
+      <p class="sous-titre">Le seul ouvrage scientifique du corpus. Les titres de chapitres sont dans la langue de l’ouvrage.</p>
+    </div>
+    <div class="ouvrage">
+      <div class="ouvrage-tete">
+        <div class="ligne"><span class="tag tag-livre">Livre</span><span class="tag tag-neutre">Volets A et B</span></div>
+        <h3>Informal Caregivers: From Hidden Heroes to Integral Part of Care</h3>
+        <p class="source">Andreas Charalambous (dir.) · Springer, 2023</p>
+      </div>
+      <div class="lectures">
+        <div class="prio"><h4>À lire en priorité</h4><ul class="chap">
+          <li><span class="n">Ch. 1.</span> Caregiving and caregivers: Concepts, caregiving models, and systems</li>
+          <li><span class="n">Ch. 2.</span> Caregiving burden and other psychosocial considerations (dont la section «&nbsp;Physical and sleep burden&nbsp;»)</li>
+          <li><span class="n">Ch. 5.</span> Caring for the informal carer: Coping in caregiving</li>
+        </ul></div>
+        <div class="ensuite"><h4>Ensuite, selon les besoins</h4><ul class="chap">
+          <li><span class="n">Ch. 3.</span> Caregiving within the context of elder care (dont la section «&nbsp;The female caregiver imperative&nbsp;»)</li>
+          <li><span class="n">Ch. 10.</span> Informal caregivers: The advocacy and policy perspective</li>
+          <li><span class="n">Ch. 6.</span> Informal caregivers and health literacy</li>
+        </ul></div>
+      </div>
+      <p class="note"><b>À savoir.</b> Le chapitre 2 porte surtout sur les aidants de personnes atteintes d’un cancer. Le chapitre 3 sert au volet B, pour la question du genre.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-articles">
+    <div class="section-tete">
+      <h2 id="t-articles">Articles selon les volets du projet</h2>
+      <div class="legende">
+        <span class="item"><span class="tag tag-rapport">Revue</span>synthèse de la littérature</span>
+        <span class="item"><span class="tag tag-etude">Étude</span>données originales</span>
+        <span class="item"><span class="tag tag-neutre">Outil</span>instrument de mesure</span>
+        <span class="item"><span class="tag tag-avis">Point de vue</span>texte d’opinion</span>
+      </div>
+    </div>
+    <ol class="questions">
+      <li><span class="pastille">A</span><div>
+        <p class="volet">Volet A · Synthèse</p>
+        <h3>Que sait-on de la santé et de l’épuisement des aidants&nbsp;?</h3>
+        <ul class="refs">
+          <li><span class="tag tag-rapport">Revue</span><span>Liu, Z. et al. (2020) <em>· analyse du concept de charge, 33&nbsp;articles</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Borges et al. (2025) <em>· analyse du concept de tension de rôle, 67&nbsp;études</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Gérain et Zech (2019) <em>· modèle théorique de l’épuisement</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Liu, J. et al. (2026) <em>· facteurs de risque de la charge, 19&nbsp;études</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Cole et al. (2025) <em>· solitude et isolement en soins palliatifs, 28&nbsp;études</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Hu et al. (2025) <em>· garde des petits-enfants et dépression</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Marques et al. (2026) <em>· coping, stress et charge, 126&nbsp;aidants</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Manzari et al. (2023) <em>· résilience et charge, 220&nbsp;aidants</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Tang et al. (2021) <em>· anxiété et charge, aidants de personnes vivant avec une SLA</em></span></li>
+        </ul>
+        <p class="attention"><b>Point d’attention.</b> Les études quantitatives sont transversales&nbsp;: elles décrivent des associations. Marques et al. mélangent aidants familiaux et professionnels. Chez Manzari et al., la corrélation entre résilience et charge est de −0,46 (Iran, 2020). Le sommeil et la cognition ne sont traités qu’en passant&nbsp;: voir les pistes plus bas.</p>
+      </div></li>
+
+      <li><span class="pastille">B</span><div>
+        <p class="volet">Volet B · Étude en ligne</p>
+        <h3>Comment mesurer la charge ressentie&nbsp;?</h3>
+        <ul class="refs">
+          <li><span class="tag tag-neutre">Outil</span><span>Grille de Zarit, version française <em>· 22&nbsp;items cotés de 0 à 4</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Testart et al. (2013) <em>· 16&nbsp;instruments chez les aidants de personnes vivant avec une schizophrénie, dont 8 sur la charge</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Guilabert et al. (2018) <em>· validation d’un instrument sur l’expérience des aidants, alpha de 0,88</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Thygesen et al. (2025) <em>· 54,3&nbsp;% des proches se déclarent fortement chargés, psychiatrie, Danemark</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>León-Caballero et al. (2022) <em>· grille de Zarit chez 144&nbsp;proches, hospitalisation psychiatrique à domicile</em></span></li>
+        </ul>
+        <p class="attention"><b>Point d’attention.</b> La grille transmise ne cite ni sa source ni ses conditions d’utilisation, alors qu’elle porte la mention ©. Ses seuils laissent les scores 20, 40 et 60 sans catégorie. Vérifiez les deux points sur la publication de validation française avant de l’utiliser.</p>
+      </div></li>
+
+      <li><span class="pastille">B</span><div>
+        <p class="volet">Volet B · Étude en ligne</p>
+        <h3>Que dit le corpus du genre et de l’alexithymie&nbsp;?</h3>
+        <ul class="refs">
+          <li><span class="tag tag-rapport">Revue</span><span>Liu, J. et al. (2026) <em>· le genre féminin de l’aidant parmi les facteurs de risque de la charge</em></span></li>
+          <li><span class="tag tag-livre">Livre</span><span>Charalambous (2023), chapitre&nbsp;3 <em>· la place des femmes dans l’aide aux personnes âgées</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Roxburgh et al. (2025) <em>· appelle à étudier les besoins des aidants selon le genre</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Gérain et Zech (2019) <em>· cite l’alexithymie comme facteur de risque de l’épuisement</em></span></li>
+        </ul>
+        <p class="attention"><b>Point d’attention.</b> Le corpus ne contient aucune étude sur la perception d’autrui, les vignettes ou l’alexithymie des aidants. Ces deux questions du volet B reposeront sur des lectures à chercher&nbsp;: voir les pistes plus bas.</p>
+      </div></li>
+
+      <li><span class="pastille">C</span><div>
+        <p class="volet">Volet C · Entretiens</p>
+        <h3>Le vécu des aidants et leur relation avec la personne aidée</h3>
+        <ul class="refs">
+          <li><span class="tag tag-etude">Étude</span><span>Dorrance et al. (2026) <em>· la qualité de vie selon 42&nbsp;personnes vivant avec la maladie de Parkinson</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Zanini et al. (2021) <em>· 22&nbsp;aidants de personnes blessées médullaires, deux phases de l’aide</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Rossinot et al. (2019) <em>· 19&nbsp;entretiens en France, théorisation ancrée</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Kirakosyan et Bacqué (2025) <em>· analyse phénoménologique interprétative, 3&nbsp;entretiens</em></span></li>
+          <li><span class="tag tag-rapport">Revue</span><span>Roxburgh et al. (2025) <em>· 14&nbsp;études qualitatives, aidants de personnes vivant avec un trouble bipolaire</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Kroon et al. (2025) <em>· proches, patients et professionnels en santé mentale</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Foster et al. (2025) <em>· 100&nbsp;messages et 600&nbsp;réponses sur des forums d’aidants</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Adebayo et al. (2024) <em>· aidants à l’hôpital, Nigeria, 75&nbsp;participants</em></span></li>
+        </ul>
+        <p class="attention"><b>Point d’attention.</b> Dorrance et al. interrogent les personnes vivant avec la maladie de Parkinson, pas leurs aidants. Kirakosyan et Bacqué montrent une méthode adaptée à un très petit nombre d’entretiens, sur un sujet éprouvant (la fin de vie d’un enfant).</p>
+      </div></li>
+
+      <li><span class="pastille neutre" aria-hidden="true">+</span><div>
+        <p class="volet">Pour l’article de vulgarisation et le site</p>
+        <h3>Les proches de personnes vivant avec un trouble psychique</h3>
+        <ul class="refs">
+          <li><span class="tag tag-avis">Point de vue</span><span>Rexhaj et al. (2026) <em>· les aidants comme partenaires du rétablissement</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Thygesen et al. (2025), Kroon et al. (2025) <em>· voir plus haut</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Besoaín-Cornejo et al. (2025) <em>· soins psychiatriques à domicile, Espagne</em></span></li>
+        </ul>
+        <p class="attention"><b>Point d’attention.</b> Rexhaj et al. est un éditorial&nbsp;: un point de vue argumenté, pas une étude. À citer comme tel.</p>
+      </div></li>
+
+      <li><span class="pastille neutre" aria-hidden="true">+</span><div>
+        <p class="volet">Pour l’éthique et la conception</p>
+        <h3>Associer les aidants à la recherche</h3>
+        <ul class="refs">
+          <li><span class="tag tag-rapport">Revue</span><span>Bowness et al. (2024) <em>· 55&nbsp;études de recherche participative avec des aidants</em></span></li>
+          <li><span class="tag tag-etude">Étude</span><span>Di Lorito et al. (2020) <em>· co-recherche avec des aidants de personnes vivant avec une démence</em></span></li>
+        </ul>
+        <p class="attention"><b>Point d’attention.</b> Utiles pour relire le questionnaire et le guide d’entretien avec des aidants, et pas seulement à leur sujet.</p>
+      </div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="t-contexte">
+    <div class="section-tete">
+      <h2 id="t-contexte">Le reste du corpus&nbsp;: le contexte</h2>
+      <p class="sous-titre">Ces documents servent le projet principal de la structure, consacré à l’hospitalisation à domicile. Ils ne sont pas à lire pour le stage, sauf pour situer le contexte.</p>
+    </div>
+    <div class="tableau">
+      <table>
+        <thead><tr><th scope="col">Thème</th><th scope="col">Références</th></tr></thead>
+        <tbody>
+          <tr><td>Modèles et efficacité de l’hospitalisation à domicile</td><td>Gonçalves-Bradley et al. (2017, Cochrane) · Leong et al. (2021) · Nikmanesh et al. (2024) · Denecke (2025) · Leff et al. (2022) · Akrour et al. (2025) · Mäkelä et al. (2018)</td></tr>
+          <tr><td>Expérience des patients et des aidants</td><td>Karlsen et al. (2023) · Chua et al. (2022) · Ko et al. (2023) · Ko et al. (2025) · Wang et al. (2024a) · Wang et al. (2024b) · Dalstrom et al. (2025) · Lubbers-Wolterink et al. (2025) · Wong et al. (2026) · Utens et al. (2014) · Frasco et al. (2024) · Gomez-Cabello et al. (2024) · Jiang et al. (2025)</td></tr>
+          <tr><td>Hospitalisation à domicile en pédiatrie</td><td>Batlle et al. (2022) · López Seguí et al. (2020) · Pinheiro et al. (2024)</td></tr>
+          <tr><td>Soins palliatifs</td><td>Bajwah et al. (2020, Cochrane) · Oluyase et al. (2021) · Lin et Chu (2025) · Umubyeyi et al. (2025)</td></tr>
+          <tr><td>Aidants et systèmes de soins</td><td>Abed et al. (2025) · Zhang et al. (2025)</td></tr>
+          <tr><td>Hors champ</td><td>Rosenthal (2024), guide de développement personnel destiné aux professionnels du soin, non évalué par les pairs&nbsp;: à ne pas citer comme source scientifique · Zikhathile et Atagana (2018), gestion des déchets de soins en Afrique du Sud</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:14px">L’article de Liu, Heffernan et Tan (2020) a été transmis en trois exemplaires&nbsp;; il n’est compté qu’une fois.</p>
+  </section>
+
+  <section aria-labelledby="t-manques">
+    <div class="section-tete">
+      <h2 id="t-manques">Ce que le corpus ne couvre pas encore</h2>
+      <p class="sous-titre">À compléter pendant la synthèse. Les références citées sont des points de départ vérifiés&nbsp;; les termes de recherche sont indicatifs.</p>
+    </div>
+    <div class="surveiller">
+      <h3>Pistes de recherche</h3>
+      <ul>
+        <li><b>L’alexithymie chez les aidants.</b> Point de départ&nbsp;: Katsifaraki et Wood (2014), cité par Gérain et Zech, sur l’alexithymie et l’épuisement des proches de personnes cérébrolésées. Pour l’outil&nbsp;: la validation française de la TAS-20 par Loas et al. (1995). <span class="termes">Termes&nbsp;: alexithymia caregiver burden, TAS-20 caregivers, emotional competence caregivers. Bases&nbsp;: PubMed, PsycINFO.</span></li>
+        <li><b>Le genre et la perception des aidants.</b> Point de départ&nbsp;: Pinquart et Sörensen (2006), méta-analyse de 229&nbsp;études. Les femmes y déclarent plus de charge et de dépression, mais les écarts sont faibles à très faibles. Aucune étude du corpus ne porte sur la manière dont on juge un homme ou une femme qui aide un proche. <span class="termes">Termes&nbsp;: gender roles caregiving perception, vignette study caregiver gender, role congruity. Base&nbsp;: PsycINFO.</span></li>
+        <li><b>L’expressivité du visage et la lecture des émotions.</b> Point de départ&nbsp;: Gunnery et al. (2016), sur l’hypomimie dans la maladie de Parkinson et le bien-être social des aidants. <span class="termes">Termes&nbsp;: hypomimia care partner, facial masking, emotion recognition caregivers.</span></li>
+        <li><b>Stress chronique, sommeil et santé physique.</b> Point de départ&nbsp;: Vitaliano et al. (2003), méta-analyse de 23&nbsp;études sur les aidants de personnes vivant avec une démence. Elle rapporte des hormones de stress plus élevées et une réponse immunitaire plus faible que chez des personnes comparables qui n’aident pas, sans démontrer un lien de cause. Le chapitre&nbsp;2 de Charalambous aborde le sommeil. <span class="termes">Termes&nbsp;: caregiver sleep meta-analysis, caregiving cognitive function, caregiver stress physiology.</span></li>
+        <li><b>Sources en français.</b> L’étude de la DREES (2023) pour les chiffres nationaux, et les travaux du programme JAID de l’Université Paris Cité sur les jeunes aidants. <span class="termes">Bases&nbsp;: Cairn, HAL, Érudit.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="biblio" aria-labelledby="t-refs">
+    <div class="section-tete">
+      <h2 id="t-refs">Références utiles au projet</h2>
+      <p class="sous-titre">Les références du contexte figurent dans le corpus transmis.</p>
+    </div>
+    <h3>Ouvrage et outil</h3>
+    <ul>
+      <li>Charalambous, A. (dir.). (2023). <i>Informal caregivers: From hidden heroes to integral part of care</i>. Springer. <a href="https://doi.org/10.1007/978-3-031-16745-4">https://doi.org/10.1007/978-3-031-16745-4</a></li>
+      <li>Grille de Zarit, échelle de pénibilité ou d’évaluation du fardeau, version française (document transmis, source à préciser).</li>
+    </ul>
+    <h3>Articles du corpus</h3>
+    <ul>
+      <li>Adebayo, K. O., Somefun, O. D., Omobowale, M., Casale, M., Usman, R., Olujimi, A. et Omodara, F. (2024). “A person taking care of the sick is also a sick person”: Challenges and consequences of hospital-based informal caregiving. <i>Inquiry</i>, 61. <a href="https://doi.org/10.1177/00469580241302005">https://doi.org/10.1177/00469580241302005</a></li>
+      <li>Besoaín-Cornejo, A. M., Gil-Girbau, M., Alouali-Moussakhkhar, M., Baladón Higueras, L., Sáez, J. et Rubio-Valera, M. (2025). Exploring lived experiences in home-based psychiatric care: A qualitative study of service users, families, and professionals in Spain. <i>Frontiers in Psychiatry</i>, 16, 1670470. <a href="https://doi.org/10.3389/fpsyt.2025.1670470">https://doi.org/10.3389/fpsyt.2025.1670470</a></li>
+      <li>Borges, B. E. C., Dantas, A. C., De Lima, J. P. M., Da Silva, C. L. B., Fernandes, M. I. C. D. et Vitor, A. F. (2025). Analysis of the concept of caregiver role strain in informal caregivers: An approach according to Meleis. <i>Revista Cuidarte</i>, 16(1), e4000. <a href="https://doi.org/10.15649/cuidarte.4000">https://doi.org/10.15649/cuidarte.4000</a></li>
+      <li>Bowness, B., Henderson, C., Akhter Khan, S. C., Akiba, M. et Lawrence, V. (2024). Participatory research with carers: A systematic review and narrative synthesis. <i>Health Expectations</i>, 27, e13940. <a href="https://doi.org/10.1111/hex.13940">https://doi.org/10.1111/hex.13940</a></li>
+      <li>Cole, L., Collins, T., Speyer, R., Ellis, C. et Cordier, R. (2025). Exploring the lived experience of loneliness and social isolation in informal palliative caregivers: A systematic review. <i>Palliative Care and Social Practice</i>, 19. <a href="https://doi.org/10.1177/26323524251397000">https://doi.org/10.1177/26323524251397000</a></li>
+      <li>Di Lorito, C., Godfrey, M., Dunlop, M., Bosco, A., Pollock, K., van der Wardt, V. et Harwood, R. H. (2020). Adding to the knowledge on patient and public involvement: Reflections from an experience of co-research with carers of people with dementia. <i>Health Expectations</i>, 23, 690-705. <a href="https://doi.org/10.1111/hex.13049">https://doi.org/10.1111/hex.13049</a></li>
+      <li>Dorrance, S., Patel, R., Stebbins, G. T., Adams, J. L., Allen, A. M., Hastings, T., Mathur, S., Phokaewvarangkul, O., Rafaloff, G., Rajalingam, R., Schrag, A., Sun, C., Mammen, J. et Marras, C. (2026). Defining quality of life: The perspective of people living with Parkinson’s disease. <i>Movement Disorders Clinical Practice</i>. <a href="https://doi.org/10.1002/mdc3.70517">https://doi.org/10.1002/mdc3.70517</a></li>
+      <li>Foster, M. L., Egwuonwu, C., Vernon, E., Alarifi, M. et Hughes, M. C. (2025). Informal caregivers connecting on the web: Content analysis of posts on discussion forums. <i>JMIR Formative Research</i>, 9, e64757. <a href="https://doi.org/10.2196/64757">https://doi.org/10.2196/64757</a></li>
+      <li>Gérain, P. et Zech, E. (2019). Informal caregiver burnout? Development of a theoretical framework to understand the impact of caregiving. <i>Frontiers in Psychology</i>, 10, 1748. <a href="https://doi.org/10.3389/fpsyg.2019.01748">https://doi.org/10.3389/fpsyg.2019.01748</a></li>
+      <li>Guilabert, M., Amil, P., González-Mestre, A., Gil-Sánchez, E., Vila, A., Contel, J. C., Ansotegui, J. C., Solas, O., Bacigalupe, M. T., Fernández-Cano, P., Arteagoitia, M. et Mira, J. J. (2018). The measure of the family caregivers’ experience. <i>International Journal of Environmental Research and Public Health</i>, 15(9), 2040. <a href="https://doi.org/10.3390/ijerph15092040">https://doi.org/10.3390/ijerph15092040</a></li>
+      <li>Hu, J., Zhang, N. et Kitcharoen, P. (2025). The impact of grandchild caregiving on depression among grandparents: A scoping review. <i>Frontiers in Public Health</i>, 13, 1696678. <a href="https://doi.org/10.3389/fpubh.2025.1696678">https://doi.org/10.3389/fpubh.2025.1696678</a></li>
+      <li>Kirakosyan, V. et Bacqué, M.-F. (2025). Interpretative phenomenological analysis of mothers’ experience of caring for their child dying of cancer at home. <i>Comprehensive Child and Adolescent Nursing</i>, 48(4), 259-277. <a href="https://doi.org/10.1080/24694193.2025.2544992">https://doi.org/10.1080/24694193.2025.2544992</a></li>
+      <li>Kroon, S. J. C., van der Krieke, L., Bruggeman, R. et Alma, M. A. (2025). The uneven triad: A qualitative study of perspectives of relatives, patients, and professionals on (not) involving relatives in mental health. <i>BMC Psychiatry</i>, 25, 384. <a href="https://doi.org/10.1186/s12888-025-06814-3">https://doi.org/10.1186/s12888-025-06814-3</a></li>
+      <li>León-Caballero, J., Sabaté, A., Roldan, M., González-Fresnedo, A. M., Samos, P., Jerónimo, M. Á., Martín, L. M., Pérez, V., Pacchiarotti, I. et Córcoles, D. (2022). Burden and satisfaction experienced in relatives and patients during home hospitalisation in psychiatry. <i>Actas Españolas de Psiquiatría</i>, 50(5), 226-232.</li>
+      <li>Liu, J., Zhao, J., Cui, S., Ye, D., Wang, L. et Chen, L. (2026). Risk factors of caregiver burden in patients with cognitive dysfunction: A scoping review. <i>Brain and Behavior</i>, 16, e71191. <a href="https://doi.org/10.1002/brb3.71191">https://doi.org/10.1002/brb3.71191</a></li>
+      <li>Liu, Z., Heffernan, C. et Tan, J. (2020). Caregiver burden: A concept analysis. <i>International Journal of Nursing Sciences</i>, 7(4), 438-445. <a href="https://doi.org/10.1016/j.ijnss.2020.07.012">https://doi.org/10.1016/j.ijnss.2020.07.012</a></li>
+      <li>Manzari, Z. S., Rafiei, H., Ghaderi, M. S., Abedi, F. et Mafi, M. H. (2023). Relationship between resilience and caregiver burden among home caregivers of COVID-19 patients. <i>Home Healthcare Now</i>, 41(1), 42-48. <a href="https://doi.org/10.1097/NHH.0000000000001133">https://doi.org/10.1097/NHH.0000000000001133</a></li>
+      <li>Marques, I. V. P., Lin, C. C., da Silva, E. Q., Tavares, B. F. S., da Silva, T. C., do Nascimento Júnior, J. R. A. et de Oliveira, D. V. (2026). Coping, stress, and burden among caregivers of older adults with Alzheimer’s: A network analysis. <i>Dementia &amp; Neuropsychologia</i>, 20, e20250367. <a href="https://doi.org/10.1590/1980-5764-DN-2025-0367">https://doi.org/10.1590/1980-5764-DN-2025-0367</a></li>
+      <li>Rexhaj, S. et al. (2026). Informal caregivers as true partners in mental health recovery: Is it time for a complete rewrite? <i>Clinical Neuropsychiatry</i>, 23(2), 131-135.</li>
+      <li>Rossinot, H., Marquestaut, O. et de Stampa, M. (2019). The experience of patients and family caregivers during hospital-at-home in France. <i>BMC Health Services Research</i>, 19, 470. <a href="https://doi.org/10.1186/s12913-019-4295-7">https://doi.org/10.1186/s12913-019-4295-7</a></li>
+      <li>Roxburgh, E., Lever Taylor, B., Rammou, A. et Hodgekins, J. (2025). Experiences of informal caregivers supporting individuals diagnosed with bipolar disorder: A systematic review and thematic synthesis. <i>International Journal of Bipolar Disorders</i>, 13, 29. <a href="https://doi.org/10.1186/s40345-025-00391-w">https://doi.org/10.1186/s40345-025-00391-w</a></li>
+      <li>Tang, S., Li, L., Xue, H., Cao, S., Li, C., Han, K. et Wang, B. (2021). Caregiver burden and associated factors among primary caregivers of patients with ALS in home care: A cross-sectional survey study. <i>BMJ Open</i>, 11, e050185. <a href="https://doi.org/10.1136/bmjopen-2021-050185">https://doi.org/10.1136/bmjopen-2021-050185</a></li>
+      <li>Testart, J., Richieri, R., Caqueo-Urízar, A., Lançon, C., Auquier, P. et Boyer, L. (2013). Quality of life and other outcome measures in caregivers of patients with schizophrenia. <i>Expert Review of Pharmacoeconomics &amp; Outcomes Research</i>, 13(5), 641-649.</li>
+      <li>Thygesen, M., Nielsen, B. K., Ellegaard, T., Nielsen, L. A., Hald, S. R., Eckardt, J. P. et Svendsen, M. L. (2025). Self-reported burden among informal caregivers of patients receiving psychiatric hospital treatment: A national cross-sectional study. <i>International Journal of Mental Health Nursing</i>, 34, e70150. <a href="https://doi.org/10.1111/inm.70150">https://doi.org/10.1111/inm.70150</a></li>
+      <li>Zanini, C., Amann, J., Brach, M., Gemperli, A. et Rubinelli, S. (2021). The challenges characterizing the lived experience of caregiving: A qualitative study in the field of spinal cord injury. <i>Spinal Cord</i>, 59, 493-503. <a href="https://doi.org/10.1038/s41393-021-00618-4">https://doi.org/10.1038/s41393-021-00618-4</a></li>
+    </ul>
+    <h3>À ajouter au corpus</h3>
+    <ul>
+      <li>Bagby, R. M., Parker, J. D. A. et Taylor, G. J. (1994). The twenty-item Toronto Alexithymia Scale—I. Item selection and cross-validation of the factor structure. <i>Journal of Psychosomatic Research</i>, 38(1), 23-32.</li>
+      <li>DREES (2023). <i>9,3 millions de personnes déclarent apporter une aide régulière à un proche en situation de handicap ou de perte d’autonomie en 2021</i>. Études et Résultats, n°&nbsp;1255. <a href="https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/etudes-et-resultats/93-millions-de-personnes-declarent-apporter">drees.solidarites-sante.gouv.fr</a></li>
+      <li>Gunnery, S. D., Habermann, B., Saint-Hilaire, M., Thomas, C. A. et Tickle-Degnen, L. (2016). The relationship between the experience of hypomimia and social wellbeing in people with Parkinson’s disease and their care partners. <i>Journal of Parkinson’s Disease</i>, 6(3), 625-630. <a href="https://doi.org/10.3233/JPD-160782">https://doi.org/10.3233/JPD-160782</a></li>
+      <li>Katsifaraki, M. et Wood, R. L. (2014). The impact of alexithymia on burnout amongst relatives of people who suffer from traumatic brain injury. <i>Brain Injury</i>, 28, 1389-1395. <a href="https://doi.org/10.3109/02699052.2014.919538">https://doi.org/10.3109/02699052.2014.919538</a></li>
+      <li>Loas, G., Fremaux, D. et Marchand, M. P. (1995). Étude de la structure factorielle et de la cohérence interne de la version française de l’échelle d’alexithymie de Toronto à 20 items (TAS-20) chez un groupe de 183 sujets sains. <i>L’Encéphale</i>, 21(2), 117-122.</li>
+      <li>Pinquart, M. et Sörensen, S. (2006). Gender differences in caregiver stressors, social resources, and health: An updated meta-analysis. <i>The Journals of Gerontology, Series B</i>, 61(1), P33-P45.</li>
+      <li>Vitaliano, P. P., Zhang, J. et Scanlan, J. M. (2003). Is caregiving hazardous to one’s physical health? A meta-analysis. <i>Psychological Bulletin</i>, 129(6), 946-972.</li>
+    </ul>
+  </section>
+
+  <div class="signature">
+    <b>Mickaël Worms-Ehrminger</b>
+    <span>Docteur en santé publique · Tuteur de stage</span>
+  </div>
+</main>
+
+<footer class="pied">
+  <a href="espace.html">Espace du stage</a> ·   <a href="https://communication-santementale.fr/">communication-santementale.fr</a> · <a href="https://communication-santementale.fr/contact/">Contact</a><br>
+  © 2026 Mickaël Worms-Ehrminger · Communiquer en santé mentale
+</footer>
+</body>
+</html>
