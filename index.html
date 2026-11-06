@@ -312,8 +312,8 @@ function getIn(obj,field){return field.split(".").reduce((o,k)=>o==null?undefine
 
 /* ---------- Enregistrement dans le dépôt GitHub ---------- */
 const GH_DEFAULT={owner:"ehrmingerm",repo:"stage-soumeya",branch:"main",file:"donnees.json"};
-const GH=Object.assign({},GH_DEFAULT,(()=>{try{return JSON.parse(ls.get("carnet-gh-repo")||"{}")}catch(e){return{}}})());
-let token=ls.get("carnet-gh-token")||"", ghLogin="", ghReady=false, remoteSha=null;
+const GH=Object.assign({},GH_DEFAULT,(()=>{try{return JSON.parse(ls.get("carnet-soumeya-gh-repo")||"{}")}catch(e){return{}}})());
+let token=ls.get("carnet-soumeya-gh-token")||ls.get("carnet-gh-token")||"", ghLogin="", ghReady=false, remoteSha=null;
 let syncState="idle", lastSync=null, setupError="", connecting=false;
 const dirty=new Map(), deleted=new Map(); let editSeq=0, saveTimer=null, queue=Promise.resolve();
 const b64enc=str=>{const by=new TextEncoder().encode(str);let bin="";for(let i=0;i<by.length;i+=0x8000)bin+=String.fromCharCode.apply(null,by.subarray(i,i+0x8000));return btoa(bin)};
@@ -403,7 +403,7 @@ async function connect(){
     if(readOnly)writeError="Votre compte peut lire le dépôt mais pas y écrire : vos saisies ne seront pas enregistrées.";
     const data=await pull();store.docs.clear();applyRemote(data);
     isOwner=ghLogin.toLowerCase()===GH.owner.toLowerCase();
-    if(!ls.get("carnet-role"))role=isOwner?"tuteur":"stagiaire";
+    if(!ls.get("carnet-soumeya-role"))role=isOwner?"tuteur":"stagiaire";
     ghReady=true;dbState="ready";lastSync=new Date();syncState="idle";
   }catch(e){
     ghReady=false;
@@ -491,12 +491,12 @@ function sparkline(id){
 /* ---------- État de l'interface ---------- */
 let view=VIEWS.some(v=>v[0]===location.hash.slice(1))?location.hash.slice(1):"semaine";
 let selWeek=null;
-let role=ls.get("carnet-role")||"tuteur";
+let role=ls.get("carnet-soumeya-role")||"tuteur";
 let demFilter="ouvertes";
 let planEdit=null;
 const ro=()=>readOnly?" disabled":"";
 const roO=()=>(readOnly||!isOwner)?" disabled":"";
-const NOTES_URL="https://claude.ai/artifact/P8fhA6vtNa1rKJiESTQS38";
+const NOTES_URL="";
 
 /* ---------- Rendu ---------- */
 let raf=0;function scheduleRender(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;render()})}
@@ -509,7 +509,7 @@ function render(){
     $("#tabs").innerHTML="";$("#app").innerHTML=token&&connecting?`<p class="muted">Connexion au dépôt…</p>`:renderSetup();
     if(keep){const el=document.getElementById(keep.id);if(el){el.value=keep.v;el.focus()}}return;
   }
-  const ws=weeks();if(!selWeek||!ws.includes(selWeek))selWeek=ls.get("carnet-week");if(!selWeek||!ws.includes(selWeek))selWeek=currentWeek();
+  const ws=weeks();if(!selWeek||!ws.includes(selWeek))selWeek=ls.get("carnet-soumeya-week");if(!selWeek||!ws.includes(selWeek))selWeek=currentWeek();
   $("#band").innerHTML=renderBand();
   $("#tabs").innerHTML=renderTabs();
   const body={semaine:renderWeek,missions:renderMissions,validations:renderDemandes,bilans:renderBilans,remarques:renderRemarques,planning:renderPlanning,gratification:renderGratif,parametres:renderSettings}[view]();
@@ -532,7 +532,7 @@ function renderBand(){
   const cq=Math.ceil(weekIndex(cw)/2);const qs=quinzaines();const next=qs.find(q=>q.n>=cq&&(getDoc("bilans/q"+q.n)||{}).statut!=="fait")||null;
   const meta=[c.structure,c.formation,c.tuteur?"Tuteur : "+c.tuteur:"",c.provisional?"":"Du "+fLong.format(c.debutD)+" au "+fLong.format(c.finD)].filter(Boolean).map(esc).join(" · ");
   return BRAND+`<div class="ident"><div><div class="label">Carnet de suivi de stage</div><h1>${esc(c.stagiaire||"Stagiaire")}</h1><div class="meta">${meta||"Structure, tuteur et dates à renseigner dans les paramètres"}</div></div>
-  <div class="role">${isOwner&&ghReady?`<a href="${NOTES_URL}" target="_blank" rel="noopener" style="margin-right:10px">Notes privées</a>`:""}<span>Vous complétez en tant que</span><div class="seg" role="group" aria-label="Rôle">${ROLES.map(([v,l])=>`<button type="button" data-action="role" data-v="${v}" aria-pressed="${role===v}">${l}</button>`).join("")}</div></div></div>
+  <div class="role">${isOwner&&ghReady&&NOTES_URL?`<a href="${NOTES_URL}" target="_blank" rel="noopener" style="margin-right:10px">Notes privées</a>`:""}<span>Vous complétez en tant que</span><div class="seg" role="group" aria-label="Rôle">${ROLES.map(([v,l])=>`<button type="button" data-action="role" data-v="${v}" aria-pressed="${role===v}">${l}</button>`).join("")}</div></div></div>
   <div class="kpis">
    <div class="kpi"><span class="label">Semaine en cours</span><span class="v">S${weekIndex(cw)} <small>sur ${ws.length}</small></span></div>
    <div class="kpi"><span class="label">Jours réalisés</span><span class="v">${nf.format(real)} <small>sur ${num(c.joursConvention,0)>0?nf.format(num(c.joursConvention,0))+" prévus":nf.format(prev)+" ouvrés"}${plan?" · "+plan+" planifiés":""}</small></span></div>
@@ -861,7 +861,7 @@ app.addEventListener("change",e=>{
     if(el.type==="range"){edit(path,d=>setIn(d,field,v),0);scheduleRender();return}
     edit(path,d=>setIn(d,field,v),0);scheduleRender();return}
   if(el.dataset&&el.dataset.action==="verse"){const mk=el.dataset.v,tot=Number(el.dataset.total);edit("versements/"+mk,d=>{d.verse=el.checked;d.montant=el.checked?tot:null;if(el.checked&&!d.date)d.date=toISO(new Date())},0);scheduleRender();return}
-  if(el.dataset&&el.dataset.action==="weeksel"){selWeek=el.value;ls.set("carnet-week",selWeek);scheduleRender()}
+  if(el.dataset&&el.dataset.action==="weeksel"){selWeek=el.value;ls.set("carnet-soumeya-week",selWeek);scheduleRender()}
   if(el.dataset&&el.dataset.action==="jt"){const n=Number(el.dataset.v);edit("stage/config",d=>{let a=Array.isArray(d.joursTravailles)?d.joursTravailles.slice():[1,2,3,4,5];a=el.checked?[...new Set([...a,n])]:a.filter(x=>x!==n);if(!a.length)a=[n];d.joursTravailles=a.sort()},0);scheduleRender()}
 });
 app.addEventListener("click",e=>{
@@ -869,8 +869,8 @@ app.addEventListener("click",e=>{
   const a=el.dataset.action,v=el.dataset.v;
   if(a==="refresh"){enqueue(refresh);return}
   if(a==="logout"){if(dirty.size||deleted.size){enqueue(push).then(()=>{if(!dirty.size&&!deleted.size)logout()})}else logout();return}
-  if(a==="week"&&v){selWeek=v;ls.set("carnet-week",v);scheduleRender()}
-  else if(a==="role"){role=v;ls.set("carnet-role",v);scheduleRender()}
+  if(a==="week"&&v){selWeek=v;ls.set("carnet-soumeya-week",v);scheduleRender()}
+  else if(a==="role"){role=v;ls.set("carnet-soumeya-role",v);scheduleRender()}
   else if(a==="demfilter"){demFilter=v;scheduleRender()}
   else if(a==="gobilan"){openBilan=Number(v);pendingBilan=true}
   else if(a==="planedit"){planEdit=v||null;scheduleRender();if(v)setTimeout(()=>{const f=document.getElementById("planform");if(f)f.scrollIntoView({block:"start",behavior:"smooth"})},60)}
@@ -886,7 +886,7 @@ app.addEventListener("submit",e=>{
   const f=e.target.closest("form[data-form]");if(!f)return;e.preventDefault();
   if(f.dataset.form==="token"){const fd=Object.fromEntries(new FormData(f).entries());token=(fd.token||"").trim();
     GH.owner=(fd.owner||GH.owner).trim();GH.repo=(fd.repo||GH.repo).trim();GH.branch=(fd.branch||GH.branch).trim()||"main";
-    ls.set("carnet-gh-token",token);ls.set("carnet-gh-repo",JSON.stringify({owner:GH.owner,repo:GH.repo,branch:GH.branch}));connect();return}
+    ls.set("carnet-soumeya-gh-token",token);ls.set("carnet-soumeya-gh-repo",JSON.stringify({owner:GH.owner,repo:GH.repo,branch:GH.branch}));connect();return}
   if(readOnly)return;
   const fd=Object.fromEntries(new FormData(f).entries());const now=new Date().toISOString();const id=uid();const kind=f.dataset.form;
   if(kind==="mission")edit("missions/"+id,d=>Object.assign(d,{titre:fd.titre.trim(),statut:fd.statut,echeance:fd.echeance||"",livrable:fd.livrable||"",description:fd.description||"",cree:now}),0);
@@ -897,7 +897,7 @@ app.addEventListener("submit",e=>{
 });
 window.addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(VIEWS.some(v=>v[0]===h)){view=h;scheduleRender();window.scrollTo({top:0})}});
 window.addEventListener("beforeunload",e=>{if(dirty.size||deleted.size){if(saveTimer){clearTimeout(saveTimer);saveTimer=null;enqueue(push)}e.preventDefault();e.returnValue=""}});
-function logout(){try{localStorage.removeItem("carnet-gh-token")}catch(e){}token="";ghReady=false;ghLogin="";store.docs.clear();dirty.clear();deleted.clear();remoteSha=null;writeError="";readOnly=false;isOwner=false;scheduleRender()}
+function logout(){try{localStorage.removeItem("carnet-soumeya-gh-token")}catch(e){}token="";ghReady=false;ghLogin="";store.docs.clear();dirty.clear();deleted.clear();remoteSha=null;writeError="";readOnly=false;isOwner=false;scheduleRender()}
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")enqueue(refresh)});
 setInterval(()=>{if(document.visibilityState==="visible")enqueue(refresh)},60000);
 
