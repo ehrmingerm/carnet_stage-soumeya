@@ -45,6 +45,7 @@ a:focus-visible{outline:2px solid var(--indigo); outline-offset:2px; border-radi
 
 .entete{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding-bottom:28px; border-bottom:1px solid var(--bordure)}
 .logo{display:flex; align-items:center; gap:12px}
+.logo-img{display:block; height:40px; width:auto}
 .logo-carre{width:36px; height:36px; border-radius:10px; background:var(--indigo); color:var(--blanc); display:grid; place-items:center; font:700 20px/1 var(--titre); padding-top:6px}
 .logo-texte{display:flex; flex-direction:column; line-height:1.1}
 .logo-texte b{font:700 17px/1.1 var(--titre); color:var(--encre); letter-spacing:-.3px}
@@ -170,9 +171,8 @@ tr:last-child td{border-bottom:0}
 
 <main class="page">
   <header class="entete">
-    <div class="logo" aria-label="Communiquer en santé mentale">
-      <div class="logo-carre" aria-hidden="true">❝</div>
-      <div class="logo-texte"><b>Communiquer</b><span>en santé mentale</span></div>
+    <div class="logo">
+      <img class="logo-img" src="triptyque-logo.png" alt="Triptyque, études et communication en santé" width="172" height="40">
     </div>
     <div class="mention"><b>Stage de L3 · Tutorat</b><span>novembre 2026</span></div>
   </header>

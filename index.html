@@ -49,6 +49,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .brandbar{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;color:var(--encre);text-decoration:none}
 .brand:hover{text-decoration:none}
+.brand .brand-img{display:block;height:40px;width:auto}
 .brand .sq{width:36px;height:36px;border-radius:10px;background:var(--indigo);color:#fff;display:grid;place-items:center;font:700 24px/1 Georgia,"Times New Roman",serif;padding-top:9px}
 .brand .l1{display:block;font:700 16px/18px var(--titre);color:var(--encre);letter-spacing:-.3px}
 .brand .l2{display:block;font:400 14px/17px var(--corps);color:var(--texte-2)}
@@ -517,7 +518,7 @@ function render(){
   det.forEach((o,id)=>{const d=document.getElementById(id);if(d&&!(id==="x-b-"+openBilan&&pendingBilan))d.open=o});pendingBilan=false;
   if(keep){const el=document.getElementById(keep.id);if(el){el.value=keep.v;el.focus();try{el.setSelectionRange(keep.s,keep.e)}catch(e){}}}
 }
-const BRAND=`<div class="brandbar"><a class="brand" href="https://communication-santementale.fr/" target="_blank" rel="noopener" aria-label="Communiquer en santé mentale"><span class="sq" aria-hidden="true">❝</span><span><span class="l1">Communiquer</span><span class="l2">en santé mentale</span></span></a><div class="mention"><b>Carnet de stage</b><span>Suivi et tutorat</span></div></div>`;
+const BRAND=`<div class="brandbar"><a class="brand" href="https://communication-santementale.fr/" target="_blank" rel="noopener"><img class="brand-img" src="triptyque-logo.png" alt="Triptyque, études et communication en santé" width="172" height="40"></a><div class="mention"><b>Carnet de stage</b><span>Suivi et tutorat</span></div></div>`;
 function renderNotices(){
   let h="";
   if(writeError)h+=`<div class="notice">${esc(writeError)}</div>`;
