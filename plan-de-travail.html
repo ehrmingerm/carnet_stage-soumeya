@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Plan de travail du stage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Charte « Communiquer en santé mentale » avec le logo Triptyque : colonne de lecture sur surface blanche, accent indigo unique. Mode clair imposé par la charte. */
+:root{
+  color-scheme: light;
+  --indigo:#4338F2; --indigo-clair:#A9A4FF; --encre:#0E0F12; --texte-fort:#23252C; --texte:#3B3E48;
+  --texte-2:#5B5F6A; --texte-3:#6B6F7A; --bordure:#E6E6EA; --filet:#EEEEF2;
+  --fond:#F7F7F5; --surface:#FFFFFF; --lavande:#F1F0F8; --indigo-pale:#ECEBFF; --comprendre:#2A1FB8;
+  --penser-bg:#DDF5EA; --penser:#0B5A39; --analyser-bg:#FFE9E2; --analyser:#9A2E14;
+  --titre:'Bricolage Grotesque',Arial,Helvetica,sans-serif;
+  --corps:'Instrument Sans',Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--fond); color:var(--texte); font:400 16px/1.6 var(--corps);
+  padding-block:32px 48px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px));
+  -webkit-font-smoothing:antialiased}
+.page{max-width:820px; margin:0 auto; background:var(--surface); border:1px solid var(--bordure); border-radius:28px; padding:36px 48px 40px}
+h1,h2,h3{font-family:var(--titre); color:var(--encre); margin:0; text-wrap:balance}
+h1{font-size:40px; line-height:43px; font-weight:700; letter-spacing:-1.4px}
+h2{font-size:26px; line-height:30px; font-weight:700; letter-spacing:-.6px}
+h3{font-size:19px; line-height:24px; font-weight:600; letter-spacing:-.3px}
+p{margin:0}
+a{color:var(--indigo); font-weight:600; text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--indigo); outline-offset:2px; border-radius:4px}
+
+.entete{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding-bottom:28px; border-bottom:1px solid var(--bordure)}
+.logo-img{display:block; height:40px; width:auto}
+.mention{text-align:right; font-size:13px; line-height:18px}
+.mention b{display:block; font-weight:600; color:var(--encre)}
+.mention span{color:var(--texte-2)}
+
+.ouverture{padding:32px 0 4px; display:flex; flex-direction:column; gap:12px}
+.sur-titre{font:600 13px/18px var(--corps); color:var(--indigo)}
+.chapo{font-size:17px; line-height:27px; max-width:62ch}
+
+section{margin-top:44px; padding-top:30px; border-top:1px solid var(--bordure)}
+.section-tete{display:flex; flex-direction:column; gap:6px; margin-bottom:22px}
+.sous-titre{font-size:15px; line-height:22px; color:var(--texte-2); max-width:64ch}
+.note{font-size:14px; line-height:21px; color:var(--texte-2); max-width:66ch}
+.apres{margin-top:18px}
+
+.encadre{background:var(--indigo-pale); border-radius:22px; padding:24px 26px; display:flex; flex-direction:column; gap:10px}
+.encadre .sur-titre{color:var(--comprendre)}
+.encadre .mission{font:700 22px/28px var(--titre); color:var(--encre); letter-spacing:-.4px}
+.encadre p{font-size:15px; line-height:23px; color:var(--texte-fort)}
+.filtre{background:var(--encre); color:#C9CBD2; border-radius:22px; padding:24px 26px; display:flex; flex-direction:column; gap:8px; margin-top:14px}
+.filtre .sur-titre{color:var(--indigo-clair)}
+.filtre p.q{font:700 22px/28px var(--titre); color:#fff; letter-spacing:-.4px}
+.filtre p{font-size:15px; line-height:23px}
+
+.deux{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.carte{border:1px solid var(--bordure); border-radius:18px; padding:20px 22px; display:flex; flex-direction:column; gap:10px; min-width:0}
+.carte h3{font-size:18px; line-height:23px}
+.puces{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px}
+.puces li{font-size:15px; line-height:23px; padding-left:18px; position:relative; color:var(--texte-fort)}
+.puces li::before{content:"•"; position:absolute; left:0; color:var(--indigo); font-weight:700}
+.puces li b{font-weight:600; color:var(--encre)}
+.non{background:var(--analyser-bg); border-radius:18px; padding:20px 22px; display:flex; flex-direction:column; gap:10px}
+.non h3{color:var(--analyser)}
+.non .puces li::before{content:"–"; color:var(--analyser)}
+
+.semaine{border:1px solid var(--bordure); border-radius:22px; padding:24px 26px; display:flex; flex-direction:column; gap:16px}
+.semaine + .semaine{margin-top:16px}
+.semaine-tete{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap}
+.vue td:first-child{white-space:nowrap; font-weight:600; color:var(--encre)}
+.semaine-tete .gauche{display:flex; flex-direction:column; gap:4px; min-width:0}
+.quand{font:600 13px/18px var(--corps); color:var(--indigo)}
+.objectif{font:700 22px/27px var(--titre); color:var(--encre); letter-spacing:-.4px}
+.total{font:700 20px/24px var(--titre); color:var(--encre); white-space:nowrap; font-variant-numeric:tabular-nums}
+.total small{font:400 13px/18px var(--corps); color:var(--texte-2)}
+.evenement{display:inline-flex; gap:8px; align-items:center; background:var(--indigo-pale); color:var(--texte-fort); border-radius:999px; padding:6px 14px; font-size:14px; line-height:20px; align-self:flex-start}
+.evenement b{color:var(--comprendre)}
+.tableau{overflow-x:auto; border:1px solid var(--bordure); border-radius:14px}
+table{border-collapse:collapse; width:100%; font-size:14px; line-height:21px}
+th,td{text-align:left; vertical-align:top; padding:10px 14px; border-bottom:1px solid var(--filet)}
+th{font:600 13px/18px var(--corps); color:var(--texte-2); background:var(--fond); white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td{color:var(--texte-fort)}
+td.h{white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--encre); font-weight:600}
+td.sert{color:var(--texte-2)}
+.livrable{background:var(--penser-bg); border-radius:14px; padding:14px 18px; display:flex; flex-direction:column; gap:4px}
+.livrable p{font-size:15px; line-height:23px; color:var(--texte-fort)}
+.livrable .lbl{font:700 13px/18px var(--corps); color:var(--penser)}
+
+.signature{margin-top:44px; padding-top:28px; border-top:1px solid var(--bordure); display:flex; flex-direction:column; gap:2px}
+.signature b{font:700 18px/24px var(--titre); color:var(--encre); letter-spacing:-.3px}
+.signature span{font-size:14px; line-height:20px; color:var(--texte-2)}
+.pied{max-width:820px; margin:22px auto 0; text-align:center; font-size:12px; line-height:19px; color:var(--texte-3)}
+.pied a{color:var(--texte-3); text-decoration:underline; font-weight:400}
+
+@media (max-width:700px){ .deux{grid-template-columns:1fr} }
+@media (max-width:620px){
+  .page{padding:26px 22px 30px; border-radius:22px}
+  h1{font-size:32px; line-height:36px}
+  h2{font-size:23px; line-height:27px}
+  .mention{text-align:left}
+  .encadre,.filtre,.semaine{padding:20px}
+}
+@media print{
+  body{background:#fff; padding:0}
+  .page{border:0; padding:0; max-width:none}
+  .semaine,.carte,.encadre,.filtre{break-inside:avoid}
+  .pied{display:none}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="entete">
+    <div class="logo">
+      <img class="logo-img" src="triptyque-logo.png" alt="Triptyque, études et communication en santé" width="172" height="40">
+    </div>
+    <div class="mention"><b>Stage de L3 · Plan de travail</b><span>journées 1 à 6, puis vue d’ensemble</span></div>
+  </header>
+
+  <div class="ouverture">
+    <p class="sur-titre">Stage de Souméya Sadi · Triptyque recherche &amp; conseil</p>
+    <h1>Plan de travail des premières journées</h1>
+    <p class="chapo">Six journées pour mener le volet A de bout en bout&nbsp;: une mini-revue de littérature et un article de vulgarisation. Chaque journée a un objectif, des tâches avec une durée indicative et un livrable. Une vue d’ensemble situe ensuite les quatorze journées suivantes. Nous ajustons au point de fin de journée.</p>
+  </div>
+
+  <section aria-labelledby="t-cap">
+    <div class="section-tete">
+      <h2 id="t-cap">Le cap</h2>
+    </div>
+    <div class="encadre">
+      <p class="sur-titre">Ce que nous construisons d’abord</p>
+      <p class="mission">Une réponse argumentée, appuyée sur la littérature, à la question&nbsp;: les aidants qui ont du mal à identifier et à décrire leurs émotions ressentent-ils une charge plus lourde&nbsp;?</p>
+      <p>Cette réponse prend deux formes. Une synthèse pour l’équipe, avec sa méthode et ses limites. Un article d’environ 6&nbsp;000&nbsp;signes pour le site <i>Communiquer en santé mentale</i>, qui distingue ce qui est établi de ce qui reste incertain.</p>
+    </div>
+    <div class="filtre">
+      <p class="sur-titre">Avant chaque tâche</p>
+      <p class="q">Est-ce que cela m’aide à répondre à la question du volet en cours&nbsp;?</p>
+      <p>Si oui, allez-y. Si non, notez l’idée dans le document de suivi pour plus tard. Si vous hésitez, demandez avant de vous lancer.</p>
+    </div>
+    <div class="deux apres">
+      <div class="carte">
+        <h3>Lire pour répondre</h3>
+        <ul class="puces">
+          <li>Chaque lecture se termine par une note&nbsp;: ce que la source affirme, sur quelles données, ce que cela change pour notre question.</li>
+          <li>Distinguez une association d’un effet. La plupart des études du sujet sont transversales.</li>
+          <li>Pas plus de la moitié de la journée en lecture. L’autre moitié produit quelque chose&nbsp;: une question, un protocole, un tableau, un texte.</li>
+        </ul>
+      </div>
+      <div class="non">
+        <h3>Pas maintenant</h3>
+        <ul class="puces">
+          <li>Élargir la revue à tous les facteurs de la charge</li>
+          <li>Chercher une bibliographie exhaustive&nbsp;: c’est une mini-revue</li>
+          <li>Concevoir le questionnaire du volet B1 avant la fin de l’article</li>
+          <li>Contacter des participants avant la validation du cadre éthique</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-routine">
+    <div class="section-tete">
+      <h2 id="t-routine">La routine de chaque journée</h2>
+      <p class="sous-titre">Une demi-heure par jour pour que tout soit consigné au même endroit. Elle est comptée dans les durées ci-dessous.</p>
+    </div>
+    <div class="deux">
+      <div class="carte">
+        <h3>En début de journée · 10&nbsp;min</h3>
+        <ul class="puces">
+          <li>Ouvrez une entrée datée dans le document de suivi.</li>
+          <li>Recopiez les tâches de la journée depuis ce plan.</li>
+          <li>Relisez ce qui a été décidé au dernier point.</li>
+        </ul>
+      </div>
+      <div class="carte">
+        <h3>En fin de journée · 20&nbsp;min</h3>
+        <ul class="puces">
+          <li>Notez ce qui a avancé, ce qui reste et ce qui bloque.</li>
+          <li>Rangez les notes de lecture et les références.</li>
+          <li>Notez les questions pour le tuteur et les usages de l’IA.</li>
+          <li>Remplissez le registre des heures dans le carnet.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note apres">Pour le point de fin de journée, préparez trois réponses&nbsp;: ce que j’ai produit, la décision dont j’ai besoin, ce qui me bloque.</p>
+  </section>
+
+  <section aria-labelledby="t-journees">
+    <div class="section-tete">
+      <h2 id="t-journees">Journée par journée</h2>
+      <p class="sous-titre">Les journées 1 à 6 couvrent les étapes 1 à 3 de la fiche de mission et ouvrent l’étape 4. Les durées sont indicatives.</p>
+    </div>
+
+    <div class="semaine">
+      <div class="semaine-tete">
+        <div class="gauche"><p class="quand">Journée 1 · étape 1</p><p class="objectif">Entrer dans le projet</p></div>
+        <p class="total">7<small>&nbsp;h</small></p>
+      </div>
+      <div class="tableau"><table>
+        <thead><tr><th>Tâche</th><th>Durée</th><th>Sert à</th></tr></thead>
+        <tbody>
+          <tr><td>Accueil, entretien de départ, test de chaque accès&nbsp;: espace du stage, carnet, Google Drive, document de suivi.</td><td class="h">2,5&nbsp;h</td><td class="sert">Cadre du stage</td></tr>
+          <tr><td>Présentation de la structure et du projet sur les aidants. Observation d’un travail en cours.</td><td class="h">1&nbsp;h</td><td class="sert">Situer le stage</td></tr>
+          <tr><td>Lecture 1&nbsp;: Liu, Heffernan et Tan (2020). Une note de lecture.</td><td class="h">1,5&nbsp;h</td><td class="sert">Définir la charge</td></tr>
+          <tr><td>Note de projet, version 1&nbsp;: ce qui vous intéresse dans les volets A, B1 et B2, ce que vous voulez apprendre. Une page.</td><td class="h">1,5&nbsp;h</td><td class="sert">Note de projet</td></tr>
+          <tr><td>Première entrée du document de suivi et du carnet, point de fin de journée.</td><td class="h">0,5&nbsp;h</td><td class="sert">Suivi</td></tr>
+        </tbody>
+      </table></div>
+      <div class="livrable"><p class="lbl">Livrable de la journée 1</p><p>Une note de lecture et la note de projet, version 1. C’est fini quand la note de projet tient sur une page et dit ce que vous attendez du stage.</p></div>
+    </div>
+    <div class="semaine">
+      <div class="semaine-tete">
+        <div class="gauche"><p class="quand">Journée 2 · étape 2</p><p class="objectif">Poser la question de la revue</p></div>
+        <p class="total">7<small>&nbsp;h</small></p>
+      </div>
+      <div class="tableau"><table>
+        <thead><tr><th>Tâche</th><th>Durée</th><th>Sert à</th></tr></thead>
+        <tbody>
+          <tr><td>Validation de la note de projet avec le tuteur.</td><td class="h">0,5&nbsp;h</td><td class="sert">Note de projet</td></tr>
+          <tr><td>Lecture 2&nbsp;: Gérain et Zech (2019). Repérez où l’alexithymie apparaît dans leur modèle.</td><td class="h">1,5&nbsp;h</td><td class="sert">Cadre théorique</td></tr>
+          <tr><td>Lecture 3&nbsp;: Katsifaraki et Wood (2014). Notez la population, les outils et l’ampleur du lien observé.</td><td class="h">1,5&nbsp;h</td><td class="sert">Point de départ de la revue</td></tr>
+          <tr><td>Lecture 4&nbsp;: la grille de Zarit et la validation française de la TAS-20 (Loas et al., 1995). Ce que mesure chaque outil, comment il se cote.</td><td class="h">1,5&nbsp;h</td><td class="sert">Outils de mesure</td></tr>
+          <tr><td>Question de la revue sous une forme précise&nbsp;: population, facteur étudié, critère de jugement. Liste des mots-clés en français et en anglais.</td><td class="h">1,5&nbsp;h</td><td class="sert">Protocole</td></tr>
+          <tr><td>Point de fin de journée.</td><td class="h">0,5&nbsp;h</td><td class="sert">Suivi</td></tr>
+        </tbody>
+      </table></div>
+      <div class="livrable"><p class="lbl">Livrable de la journée 2</p><p>Trois notes de lecture, la question de la revue et la liste des mots-clés. C’est fini quand la question tient en une phrase et que chaque terme a ses équivalents anglais.</p></div>
+    </div>
+    <div class="semaine">
+      <div class="semaine-tete">
+        <div class="gauche"><p class="quand">Journée 3 · étape 2</p><p class="objectif">Écrire le protocole</p></div>
+        <p class="total">7<small>&nbsp;h</small></p>
+      </div>
+      <div class="tableau"><table>
+        <thead><tr><th>Tâche</th><th>Durée</th><th>Sert à</th></tr></thead>
+        <tbody>
+          <tr><td>Lecture 5&nbsp;: la déclaration PRISMA 2020 (Page et al., 2021). Retenez le diagramme de flux et ce qu’il faut rapporter.</td><td class="h">1,5&nbsp;h</td><td class="sert">Méthode</td></tr>
+          <tr><td>Équation de recherche pour PubMed, PsycINFO et Cairn&nbsp;: termes libres et descripteurs de chaque base. Un premier test dans PubMed.</td><td class="h">2&nbsp;h</td><td class="sert">Recherche</td></tr>
+          <tr><td>Critères d’inclusion et d’exclusion, écrits avant la recherche&nbsp;: type d’étude, population, mesures, langues, période.</td><td class="h">1&nbsp;h</td><td class="sert">Sélection</td></tr>
+          <tr><td>Tableau d’extraction&nbsp;: référence, pays, population, effectif, outils, résultat principal, limites.</td><td class="h">1&nbsp;h</td><td class="sert">Extraction</td></tr>
+          <tr><td>Protocole de la mini-revue, version 1, en deux pages au plus.</td><td class="h">1&nbsp;h</td><td class="sert">Protocole</td></tr>
+          <tr><td>Point de fin de journée.</td><td class="h">0,5&nbsp;h</td><td class="sert">Suivi</td></tr>
+        </tbody>
+      </table></div>
+      <div class="livrable"><p class="lbl">Livrable de la journée 3</p><p>Le protocole, version 1, et le tableau d’extraction vide. C’est fini quand une autre personne pourrait refaire la recherche à partir du protocole.</p></div>
+    </div>
+    <div class="semaine">
+      <div class="semaine-tete">
+        <div class="gauche"><p class="quand">Journée 4 · étape 2</p><p class="objectif">Chercher et trier</p></div>
+        <p class="total">7<small>&nbsp;h</small></p>
+      </div>
+      <div class="tableau"><table>
+        <thead><tr><th>Tâche</th><th>Durée</th><th>Sert à</th></tr></thead>
+        <tbody>
+          <tr><td>Validation du protocole avec le tuteur.</td><td class="h">0,5&nbsp;h</td><td class="sert">Protocole</td></tr>
+          <tr><td>Recherche dans les trois bases, export des résultats dans Zotero, suppression des doublons.</td><td class="h">2,5&nbsp;h</td><td class="sert">Corpus de la revue</td></tr>
+          <tr><td>Tri sur titres et résumés, avec la raison de chaque exclusion.</td><td class="h">2,5&nbsp;h</td><td class="sert">Sélection</td></tr>
+          <tr><td>Diagramme de flux provisoire&nbsp;: nombre de références trouvées, exclues, retenues.</td><td class="h">0,5&nbsp;h</td><td class="sert">Méthode</td></tr>
+          <tr><td>Premier bilan avec le tuteur, et point de fin de journée.</td><td class="h">1&nbsp;h</td><td class="sert">Ajuster le plan</td></tr>
+        </tbody>
+      </table></div>
+      <div class="livrable"><p class="lbl">Livrable de la journée 4</p><p>Les résultats de la recherche, le tri sur titres et résumés et le diagramme provisoire. C’est fini quand chaque référence exclue a une raison.</p></div>
+    </div>
+    <div class="semaine">
+      <div class="semaine-tete">
+        <div class="gauche"><p class="quand">Journée 5 · étapes 2 et 3</p><p class="objectif">Lire, extraire, synthétiser</p></div>
+        <p class="total">7<small>&nbsp;h</small></p>
+      </div>
+      <div class="tableau"><table>
+        <thead><tr><th>Tâche</th><th>Durée</th><th>Sert à</th></tr></thead>
+        <tbody>
+          <tr><td>Lecture intégrale des études retenues et remplissage du tableau d’extraction.</td><td class="h">3&nbsp;h</td><td class="sert">Extraction</td></tr>
+          <tr><td>Synthèse narrative, version 1&nbsp;: ce qui est établi, ce qui reste incertain, les limites des études. Deux à trois pages.</td><td class="h">2&nbsp;h</td><td class="sert">Synthèse du volet A</td></tr>
+          <tr><td>Plan de l’article&nbsp;: un message principal, trois parties, les sources de chaque affirmation.</td><td class="h">1,5&nbsp;h</td><td class="sert">Article</td></tr>
+          <tr><td>Point de fin de journée.</td><td class="h">0,5&nbsp;h</td><td class="sert">Suivi</td></tr>
+        </tbody>
+      </table></div>
+      <div class="livrable"><p class="lbl">Livrable de la journée 5</p><p>Le tableau d’extraction rempli, la synthèse version 1 et le plan de l’article. C’est fini quand chaque affirmation de la synthèse renvoie à une étude du tableau.</p></div>
+    </div>
+    <div class="semaine">
+      <div class="semaine-tete">
+        <div class="gauche"><p class="quand">Journée 6 · étapes 3 et 4</p><p class="objectif">Écrire l’article, ouvrir le volet B1</p></div>
+        <p class="total">7<small>&nbsp;h</small></p>
+      </div>
+      <div class="tableau"><table>
+        <thead><tr><th>Tâche</th><th>Durée</th><th>Sert à</th></tr></thead>
+        <tbody>
+          <tr><td>Article de vulgarisation, version 1, environ 6&nbsp;000&nbsp;signes.</td><td class="h">2,5&nbsp;h</td><td class="sert">Article</td></tr>
+          <tr><td>Relecture avec le tuteur&nbsp;: chaque affirmation vérifiée contre sa source, vocabulaire respectueux des personnes concernées.</td><td class="h">1&nbsp;h</td><td class="sert">Article</td></tr>
+          <tr><td>Lecture 6&nbsp;: Zwar et al. (2021), l’enquête par vignettes la plus proche du volet B1. Notez le plan, les vignettes et les mesures.</td><td class="h">1,5&nbsp;h</td><td class="sert">Revue ciblée B1</td></tr>
+          <tr><td>Début de la revue ciblée&nbsp;: Laporte et al. (2026), de Graaff et al. (2025). Une liste des jugements que l’on porte sur un aidant.</td><td class="h">1,5&nbsp;h</td><td class="sert">Revue ciblée B1</td></tr>
+          <tr><td>Point de fin de journée.</td><td class="h">0,5&nbsp;h</td><td class="sert">Suivi</td></tr>
+        </tbody>
+      </table></div>
+      <div class="livrable"><p class="lbl">Livrable de la journée 6</p><p>L’article relu, prêt pour sa version finale, et une note de lecture sur Zwar et al. (2021). C’est fini quand l’article ne contient aucune affirmation sans source.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-vue">
+    <div class="section-tete">
+      <h2 id="t-vue">Vue d’ensemble des journées 7 à 20</h2>
+      <p class="sous-titre">Le détail de chaque journée sera écrit au fur et à mesure, comme pour les six premières. Les heures correspondent à la répartition de la fiche de mission.</p>
+    </div>
+    <div class="tableau"><table class="vue">
+      <thead><tr><th>Journées</th><th>Étapes</th><th>Contenu</th><th>Livrable</th></tr></thead>
+      <tbody>
+          <tr><td>J7</td><td>4, fin</td><td>Revue ciblée sur le genre et le regard porté sur les aidants, hypothèses du volet B1</td><td class="sert">Synthèse courte et hypothèses</td></tr>
+          <tr><td>J8 à J10</td><td>5, début de 9</td><td>Vignettes, questionnaire, pré-test, mise en ligne. Note d’information du questionnaire et formulaire de contact séparé</td><td class="sert">Questionnaire en ligne</td></tr>
+          <tr><td>J11</td><td>6</td><td>Diffusion du questionnaire, suivi des réponses</td><td class="sert">Plan de diffusion, premières réponses</td></tr>
+          <tr><td>J12</td><td>6 et 9</td><td>Pendant le recueil&nbsp;: qualification réglementaire, note d’information et consentement des entretiens, guide d’entretien</td><td class="sert">Documents du volet B2</td></tr>
+          <tr><td>J13 à J16</td><td>7, début de 8</td><td>Structuration de la base, dictionnaire des variables, analyses dans JASP ou R, tableaux et figures</td><td class="sert">Base, fichier d’analyses</td></tr>
+          <tr><td>J17</td><td>8, début de 10</td><td>Texte scientifique au format introduction, méthode, résultats, discussion. Prise de contact avec les volontaires</td><td class="sert">Texte scientifique</td></tr>
+          <tr><td>J18</td><td>10 et 11</td><td>Trois ou quatre entretiens, relecture et pseudonymisation des transcriptions automatiques</td><td class="sert">Transcriptions pseudonymisées</td></tr>
+          <tr><td>J19</td><td>11</td><td>Analyse thématique et synthèse</td><td class="sert">Synthèse thématique</td></tr>
+          <tr><td>J20</td><td>12</td><td>Rapport de stage, bilan final, présentation orale</td><td class="sert">Rapport et présentation</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note apres">Le recueil du volet B1 dure plusieurs semaines. Les analyses commencent quand l’effectif visé est atteint ou à une date de clôture fixée à l’avance. Si le recueil prend du retard, le volet B2 se réduit à deux entretiens et les heures libérées vont aux analyses.</p>
+  </section>
+
+  <div class="signature">
+    <b>Mickaël Worms-Ehrminger</b>
+    <span>Tuteur de stage</span>
+  </div>
+</main>
+
+<footer class="pied">
+  <a href="espace.html">Espace du stage</a> · <a href="https://communication-santementale.fr/">communication-santementale.fr</a><br>
+  © 2026 Mickaël Worms-Ehrminger · Triptyque
+</footer>
+</body>
+</html>
